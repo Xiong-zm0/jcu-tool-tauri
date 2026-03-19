@@ -1,0 +1,39 @@
+.artical-page {
+    margin: auto;
+    max-width: 50em;
+
+    background-color: rgba(255, 255, 255, 0.92);
+    padding: 1em 3em;
+    border-radius: 0.5em;
+}
+
+.artical-page h1 {
+    text-align: center;
+}
+
+.artical-page h6 {
+    margin: 1em 0;
+    text-align: center;
+}
+
+.artical-page p {
+    margin: 1em 0;
+}
+
+.artical-page img {
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+    border-radius: 0.5em;
+}
+
+@media screen and (max-width: 648px) {
+    .artical-page {
+        padding: 1em 0.75em;
+    }
+
+    .artical-page h1 {
+        text-align: center;
+        font-size: 1.25em;
+    }
+}

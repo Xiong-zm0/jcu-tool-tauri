@@ -1,0 +1,30 @@
+.card {
+    --radius: 0.5em;
+    --transition-time: 0.5s;
+
+    border-radius: var(--radius);
+    box-shadow: 0 0 0.5em #00000055;
+}
+
+.group-split-line {
+    display: grid;
+    padding: 0.5em;
+
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.group-split-line__line {
+    background-color: blueviolet;
+    height: 0.1em;
+}
+
+.group-split-line__text {
+    padding: 0 0.5em;
+}
+
+@media  screen and (max-width: 648px) {
+    .card {
+    box-shadow: 0 0 0.125em #00000055;
+    }
+}

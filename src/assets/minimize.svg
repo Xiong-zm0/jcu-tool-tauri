@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+ <defs
+   id="defs1">
+  <style
+   type="text/css"
+   id="style1">
+   <![CDATA[
+    .fil0 {fill: var(--fill-color, #ffffff)}
+   ]]>
+  </style>
+ </defs>
+  <g
+    id="layer1">
+    <rect
+       class="fil0"
+       style="stroke-width:0.339339"
+       id="rect1"
+       width="11.897"
+       height="1.5515167"
+       x="0.40149984"
+       y="5.5742416"
+       rx="0.77600002"
+       ry="0.77575833" />
+  </g>
+</svg>

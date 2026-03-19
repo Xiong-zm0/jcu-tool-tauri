@@ -1,0 +1,77 @@
+.information-card-group {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill, minmax(200px, 1fr)
+    );
+    gap: 1em;
+}
+
+.information-card {
+    --radius: 0.5em;
+    --side-padding: 0.5em;
+
+    display: grid;
+    gap: 0.5em;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "cover cover"
+        "title title"
+        "department timetip";
+    
+    background-color: #ffffffe0;
+}
+
+.information-card__cover {
+    grid-area: cover;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.information-card__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius) var(--radius) 0 0;
+    background-color: rgb(220, 209, 225);
+}
+
+.information-card__title {
+    grid-area: title;
+    line-height: 1.5;
+    padding: 0 var(--side-padding);
+    
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.information-card__department {
+    grid-area: department;
+    padding-left: var(--side-padding);
+
+    text-align: left;
+    font-size: 0.9em;
+    color: #00000090;
+}
+
+.information-card__timetip {
+    grid-area: timetip;
+    padding-right: var(--side-padding);
+    padding-bottom: var(--side-padding);
+
+    text-align: right;
+    font-size: 0.9em;
+}
+
+@media screen and (max-width: 648px) {
+    .information-card-group {
+        gap: 0.5em;
+        grid-template-columns: repeat(
+            auto-fill, minmax(170px, 1fr)
+    );
+    }
+}

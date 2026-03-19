@@ -1,0 +1,31 @@
+.footbar-desktop {
+    z-index: 1;
+    background-color: blueviolet;
+    grid-area: footbar;
+
+    display: flex;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.footbar-desktop .footbutton {
+    height: 100%;
+    min-width: 2em;
+    padding: 0.05em 0.25em;
+    color: #ffffffb6;
+    background-color: blueviolet;
+}
+
+.footbar-desktop .footbutton:hover {
+    height: 100%;
+    background-color: rgb(170, 100, 235);
+}
+
+.footbar-desktop__split-line {
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 648px) {
+    .footbar-desktop {
+        display: none;
+    }
+}
