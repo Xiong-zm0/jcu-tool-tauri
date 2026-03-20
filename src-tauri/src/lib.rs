@@ -1,7 +1,6 @@
+use scraper;
 use tauri::{self, http::response};
 use tauri_plugin_http::reqwest;
-use scraper;
-
 
 struct Info {
     department: String,
@@ -33,33 +32,35 @@ impl Info {
     }
 }
 
-
-
 #[tauri::command]
 async fn get_informations<'r>() -> Result<String, String> {
-
     let url = "https://www.jcu.edu.cn/home/tdxw.htm".to_string();
 
-    let response = reqwest::get(&url).await
+    let response = reqwest::get(&url)
+        .await
         .map_err(|e| format!(r#"{{"error": "{} [2]"}}"#, e))?;
 
-    let body = response.text().await
+    let body = response
+        .text()
+        .await
         .map_err(|e| format!(r#"{{"error": "{} [3]"}}"#, e))?;
 
-    
     let mut informations = {
         let document = scraper::Html::parse_document(&body);
         extract_news(&document)
-        .iter()
-        .map(|i| i.to_json())
-        .collect::<Vec<String>>()
-        .join(", ")
+            .iter()
+            .map(|i| i.to_json())
+            .collect::<Vec<String>>()
+            .join(", ")
     };
 
     let url = "https://www.jcu.edu.cn/home/tzgg.htm".to_string();
-    let response = reqwest::get(&url).await
+    let response = reqwest::get(&url)
+        .await
         .map_err(|e| format!(r#"{{"error": "{} [4]"}}"#, e))?;
-    let body = response.text().await
+    let body = response
+        .text()
+        .await
         .map_err(|e| format!(r#"{{"error": "{} [5]"}}"#, e))?;
     let document = scraper::Html::parse_document(&body);
     informations = format!(
@@ -77,10 +78,13 @@ async fn get_informations<'r>() -> Result<String, String> {
 
 #[tauri::command]
 async fn get_artical<'r>(url: String) -> Result<String, String> {
-    let response = reqwest::get(&url).await
+    let response = reqwest::get(&url)
+        .await
         .map_err(|e| format!(r#"{{"error": "{} [4]"}}"#, e))?;
 
-    let body = response.text().await
+    let body = response
+        .text()
+        .await
         .map_err(|e| format!(r#"{{"error": "{}"[5]}}"#, e))?;
 
     let document = scraper::Html::parse_document(&body);
@@ -98,7 +102,7 @@ fn parse_total_page(document: &scraper::Html) -> u32 {
         .unwrap_or_else(|| "[无总页数]".to_string())
         .trim()
         .to_string();
-    
+
     total_page.pop();
     total_page.remove(0);
     total_page.parse::<u32>().unwrap()
@@ -143,7 +147,7 @@ fn extract_news(document: &scraper::Html) -> Vec<Info> {
             .unwrap_or("#");
 
         let artical_url = artical_url.replace("../", "https://www.jcu.edu.cn/");
-        
+
         let cover_url = li
             .select(&scraper::Selector::parse(".news_thumb img").unwrap())
             .next()
@@ -208,7 +212,7 @@ fn extract_notice(document: &scraper::Html) -> Vec<Info> {
             .unwrap_or("#");
 
         let artical_url = artical_url.replace("../", "https://www.jcu.edu.cn/");
-        
+
         // let cover_url = li
         //     .select(&scraper::Selector::parse(".news_thumb img").unwrap())
         //     .next()
@@ -240,21 +244,30 @@ fn extract_artical(document: &scraper::Html) -> String {
     let passages_selector = scraper::Selector::parse("div.v_news_content").unwrap();
     let text_selector = scraper::Selector::parse("p span").unwrap();
     let img_selector = scraper::Selector::parse("img.img_vsb_content").unwrap();
-    
-    let title = document.select(&title_selector).next()
+
+    let title = document
+        .select(&title_selector)
+        .next()
         .map(|el| el.text().collect::<String>())
         .unwrap_or("[解析文章标题出错]".to_string());
 
     let release_time = "[解析文章发布时间出错]".to_string();
 
     let mut passages: Vec<String> = Vec::new();
-    for passage in document.select(&passages_selector).next().unwrap().child_elements() {
+    for passage in document
+        .select(&passages_selector)
+        .next()
+        .unwrap()
+        .child_elements()
+    {
         if let Some(text) = passage.select(&text_selector).next() {
             let text = text.text().collect::<String>();
             passages.push(format!(r#"{{"type": "text", "content": "{text}"}}"#));
         } else if let Some(img) = passage.select(&img_selector).next() {
             let src = img.value().attr("src").unwrap().to_string();
-            passages.push(format!(r#"{{"type": "image", "url": "https://www.jcu.edu.cn{src}"}}"#));
+            passages.push(format!(
+                r#"{{"type": "image", "url": "https://www.jcu.edu.cn{src}"}}"#
+            ));
         }
     }
     let passages = passages.join(", ");
@@ -270,6 +283,7 @@ fn extract_artical(document: &scraper::Html) -> String {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_store::Builder::new().build())
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![get_informations, get_artical])

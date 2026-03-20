@@ -72,11 +72,12 @@ function changePageStake(buttonId) {
     document.querySelector(activeId).setAttribute("aria-pressed", "true");
 }
 
-export function pushNewPage(page) {
-    trackGroups[activeId].trackGroup.lastElementChild.setAttribute("animation", "left");
-    trackGroups[activeId].trackGroup.appendChild(page);
+export async function pushNewPage(pageConstructor, targetTrack) {
+    trackGroups[targetTrack].trackGroup.lastElementChild.setAttribute("animation", "left");
+    let page = await pageConstructor();
+    trackGroups[targetTrack].trackGroup.appendChild(page);
     setTimeout(() => {
-        trackGroups[activeId].trackGroup.lastElementChild.setAttribute("animation", "center");
+        trackGroups[targetTrack].trackGroup.lastElementChild.setAttribute("animation", "center");
     }, 200);
-    trackGroups[activeId].level += 1;
+    trackGroups[targetTrack].level += 1;
 }

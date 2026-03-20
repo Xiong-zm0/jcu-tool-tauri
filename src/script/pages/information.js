@@ -81,8 +81,8 @@ function constructInformationCard(information) {
     let informationCard = document.createElement("button");
     informationCard.setAttribute("class", "information-card card");
     informationCard.addEventListener("click", async () => {
-        let articalNode = await constructArtical(information.articalUrl);
-        pushNewPage(articalNode);
+        let articalNodeConstructor = () => constructArtical(information.articalUrl);
+        pushNewPage(articalNodeConstructor, "#navigation-news");
     });
 
     let coverCache = document.createElement("div");
