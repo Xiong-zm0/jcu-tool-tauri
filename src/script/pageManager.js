@@ -37,16 +37,17 @@ function initMainView() {
 function bindBackButton() {
     let backButton = document.querySelector("#navigation-back");
     backButton.addEventListener("click", () => {
-        if (trackGroups[activeId].level > 1) {
-            trackGroups[activeId].level -= 1;
-            const lastSecondElement = trackGroups[activeId].trackGroup.children[trackGroups[activeId].level-1];
-            trackGroups[activeId].trackGroup.lastElementChild.setAttribute("animation", "right");
+        const justActivedTrackGroups = trackGroups[activeId];
+        if (justActivedTrackGroups.level > 1) {
+            justActivedTrackGroups.level -= 1;
+            const lastSecondElement = justActivedTrackGroups.trackGroup.children[justActivedTrackGroups.level-1];
+            justActivedTrackGroups.trackGroup.lastElementChild.setAttribute("animation", "right");
             setTimeout(() => {
                 lastSecondElement.setAttribute("animation", "center");
             }, 200);
             setTimeout(() => {
-                trackGroups[activeId].trackGroup.lastElementChild.remove();
-            }, 500);
+                justActivedTrackGroups.trackGroup.lastElementChild.remove();
+            }, 400);
         }
     })
 }
@@ -73,11 +74,21 @@ function changePageStake(buttonId) {
 }
 
 export async function pushNewPage(pageConstructor, targetTrack) {
-    trackGroups[targetTrack].trackGroup.lastElementChild.setAttribute("animation", "left");
+    const oldLastElement = trackGroups[targetTrack].trackGroup.children[trackGroups[targetTrack].level-1];
+    oldLastElement.setAttribute("animation", "left");
+
+    const startTime = Date.now();
     let page = await pageConstructor();
     trackGroups[targetTrack].trackGroup.appendChild(page);
-    setTimeout(() => {
-        trackGroups[targetTrack].trackGroup.lastElementChild.setAttribute("animation", "center");
-    }, 200);
     trackGroups[targetTrack].level += 1;
+    const newLastElement = trackGroups[targetTrack].trackGroup.children[trackGroups[targetTrack].level-1];
+    const elapsed = Date.now() - startTime;
+    const remainingDelay = Math.max(0, 200 - elapsed);
+    setTimeout(() => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                newLastElement.setAttribute("animation", "center");
+            });
+        });
+    }, remainingDelay);
 }

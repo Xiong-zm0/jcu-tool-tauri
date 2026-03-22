@@ -1,0 +1,44 @@
+.setting-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.setting-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffffe0;
+    padding: 0.5em;
+}
+
+.setting-section .setting-section__title {
+    color: #595959;
+    font-size: 0.8em;
+    padding: 0.5em;
+}
+
+.setting-section .setting-section__item {
+    height: 2.5em;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    background-color: #ffffff00;
+    text-align: left;
+}
+
+.setting-section .setting-section__item:hover {
+    background-color: #9453cc12;
+}
+
+@media screen and (max-width: 648px) {
+    .setting-page {
+        gap: 0.5em;
+    }
+
+    .setting-section .setting-section__title {
+        font-size: 0.8em;
+    }
+
+    .setting-section .setting-section__item {
+        height: 3em;
+    }
+}
