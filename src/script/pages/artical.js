@@ -38,10 +38,10 @@ export async function constructArtical(src) {
 }
 
 async function getArtical(url) {
-    let resolt = await invoke("get_artical", {url: url});
-    console.log(JSON.parse(resolt));
-    return JSON.parse(resolt);
-    resolt = {
+    let result = await invoke("get_artical", {url: url});
+    console.log(JSON.parse(result));
+    return JSON.parse(result);
+    result = {
         "title": "校党委书记蒲守智检查指导新学期教学工作",
         "releaseTime": "2026-03-02",
         "passages": [
@@ -75,5 +75,5 @@ async function getArtical(url) {
             }
         ]
     }
-    return resolt;
+    return result;
 }

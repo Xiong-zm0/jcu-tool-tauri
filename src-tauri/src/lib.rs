@@ -1,6 +1,38 @@
+mod cache;
+mod settings;
+mod article;
+mod channel;
+
+use std::sync::{Arc, Mutex};
+
 use scraper;
-use tauri::{self, http::response};
+use tauri::{self, Manager};
 use tauri_plugin_http::reqwest;
+
+use settings::Settings;
+use article::Article;
+use channel::{Channel, ChannelMainNews, ChannelMainNotice};
+
+
+struct AppState {
+    settings: Settings,
+    channels: Vec<Arc<dyn Channel>>,
+}
+
+#[tauri::command]
+async fn synchronize_channels(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<Article>, String> {
+    let channels = {
+        let state = state.lock().unwrap();
+        state.channels.clone() 
+    };
+
+    let mut all_articles = Vec::new();
+    for channel in channels {
+        let articles = channel.synchronize().await;
+        all_articles.extend(articles);
+    }
+    Ok(all_articles)
+}
 
 struct Info {
     department: String,
@@ -110,8 +142,8 @@ fn parse_total_page(document: &scraper::Html) -> u32 {
 
 fn extract_news(document: &scraper::Html) -> Vec<Info> {
     let li_selector = scraper::Selector::parse("li.news_list_li").unwrap();
-    let title_selector = scraper::Selector::parse(".news_title").unwrap();
-    let date_selector = scraper::Selector::parse(".news_dt11").unwrap();
+    let title_selector = scraper::Selector::parse("span.news_title").unwrap();
+    let date_selector = scraper::Selector::parse("span.news_dt11").unwrap();
     let summary_selector = scraper::Selector::parse(".news_summary").unwrap();
     let mut info_vec = Vec::new();
 
@@ -242,6 +274,8 @@ fn extract_artical(document: &scraper::Html) -> String {
     let title_selector = scraper::Selector::parse("div.c_title").unwrap();
     // let release_time_selector = scraper::Selector::parse("").unwrap();
     let passages_selector = scraper::Selector::parse("div.v_news_content").unwrap();
+
+    // some passages might need Selector::parse("p"), "https://www.jci.edu.cn/info/1055/50805.htm"
     let text_selector = scraper::Selector::parse("p span").unwrap();
     let img_selector = scraper::Selector::parse("img.img_vsb_content").unwrap();
 
@@ -270,6 +304,7 @@ fn extract_artical(document: &scraper::Html) -> String {
             ));
         }
     }
+
     let passages = passages.join(", ");
     format!(
         r#"{{
@@ -283,10 +318,20 @@ fn extract_artical(document: &scraper::Html) -> String {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_store::Builder::new().build())
+        .setup(|app| {
+            let state = AppState {
+                settings: Settings {},
+                channels: vec![
+                    Arc::new(ChannelMainNews::new()),
+                ],
+            };
+            app.manage(Mutex::new(state));
+            Ok(())
+        })
+        .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![get_informations, get_artical])
+        .invoke_handler(tauri::generate_handler![get_informations, get_artical, synchronize_channels])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

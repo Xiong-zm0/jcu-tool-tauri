@@ -40,13 +40,9 @@ export async function loadInformation() {
 }
 
 async function fetchInformation(dataEpochs) {
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     if (dataEpochs == "new") {
-        let informations = await invoke("get_informations");
-        informations = await JSON.parse(informations);
+        let informations = await invoke("synchronize_channels");
+        console.log(informations);
         return informations;
     } else if (dataEpochs == "ancient") {
         return [
@@ -81,24 +77,21 @@ function constructInformationCard(information) {
     let informationCard = document.createElement("button");
     informationCard.setAttribute("class", "information-card card");
     informationCard.addEventListener("click", async () => {
-        let articalNodeConstructor = () => constructArtical(information.articalUrl);
+        let articalNodeConstructor = () => constructArtical(information.url);
         pushNewPage(articalNodeConstructor, "#navigation-news");
     });
 
     let coverCache = document.createElement("div");
     coverCache.setAttribute("class", "information-card__cover");
-    let coverHD = document.createElement("div");
-    coverHD.setAttribute("class", "information-card__cover");
+    let cover = document.createElement("div");
+    cover.setAttribute("class", "information-card__cover");
 
-    let coverImgCache = document.createElement("img");
-    coverImgCache.setAttribute("src", information.coverCache);
-    coverImgCache.setAttribute("alt", " "); // avoid broken img border
-    let coverImgHD = document.createElement("img");
-    coverImgHD.setAttribute("src", information.coverUrl);
-    coverImgHD.setAttribute("alt", " ");
-    coverImgHD.style.opacity = 0;
-    coverImgHD.onload = (_event) => {
-        coverImgHD.style.opacity = 1;
+    let coverImg = document.createElement("img");
+    coverImg.setAttribute("src", information.cover);
+    coverImg.setAttribute("alt", " ");
+    coverImg.style.opacity = 0;
+    coverImg.onload = (_event) => {
+        coverImg.style.opacity = 1;
     };
 
     let title = document.createElement("div");
@@ -106,15 +99,14 @@ function constructInformationCard(information) {
     title.innerText = information.title;
     let department = document.createElement("div");
     department.setAttribute("class", "information-card__department");
-    department.innerText = information.department;
+    department.innerText = information.signature;
     let timeTip = document.createElement("div");
     timeTip.setAttribute("class", "information-card__timetip");
-    timeTip.innerText = information.timeTip;
+    timeTip.innerText = information.release_time;
 
-    coverCache.appendChild(coverImgCache);
-    coverHD.appendChild(coverImgHD);
+    cover.appendChild(coverImg);
     informationCard.appendChild(coverCache);
-    informationCard.appendChild(coverHD);
+    informationCard.appendChild(cover);
     informationCard.appendChild(title);
     informationCard.appendChild(department);
     informationCard.appendChild(timeTip);

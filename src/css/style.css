@@ -48,21 +48,27 @@
     
     padding: 1em;
     overflow: auto;
-    transform: translateX(100%);
+    opacity: 0;
+    transform: translateX(100%) scale(2);
 
-    transition: transform 0.5s cubic-bezier(.38,.43,0,1);
+    transition:
+        opacity 0.5s cubic-bezier(.38,.43,0,1),
+        transform 0.5s cubic-bezier(.38,.43,0,1);
 }
 
 .carousel-track[animation=left] {
-    transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
 }
 
 .carousel-track[animation=center] {
-    transform: translateX(0%);
+    opacity: 1;
+    transform: translateX(0%) scale(1);
 }
 
 .carousel-track[animation=right] {
-    transform: translateX(100%);
+    opacity: 0;
+    transform: translateX(150%) scale(2);
 }
 
 @media screen and (max-width: 648px) {
