@@ -323,6 +323,7 @@ pub fn run() {
                 settings: Settings {},
                 channels: vec![
                     Arc::new(ChannelMainNews::new()),
+                    Arc::new(ChannelMainNotice::new()),
                 ],
             };
             app.manage(Mutex::new(state));

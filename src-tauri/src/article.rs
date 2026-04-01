@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 pub struct Article {
     url: String,
     title: String,
-    release_time: f32,
+    release_time: Option<f32>,
     cover: Option<Image>,
     passages: Option<Vec<Passage>>,
     signature: Option<String>,
@@ -45,7 +45,7 @@ struct Table {
 
 
 impl Article {
-    pub fn new(url: String, title: String, release_time: f32) -> Self {
+    pub fn new(url: String, title: String, release_time: Option<f32>) -> Self {
         Self {
             url,
             title,

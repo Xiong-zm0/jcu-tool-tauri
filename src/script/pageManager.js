@@ -42,12 +42,8 @@ function bindBackButton() {
             justActivedTrackGroups.level -= 1;
             const lastSecondElement = justActivedTrackGroups.trackGroup.children[justActivedTrackGroups.level-1];
             justActivedTrackGroups.trackGroup.lastElementChild.setAttribute("animation", "right");
-            setTimeout(() => {
-                lastSecondElement.setAttribute("animation", "center");
-            }, 200);
-            setTimeout(() => {
-                justActivedTrackGroups.trackGroup.lastElementChild.remove();
-            }, 400);
+            lastSecondElement.setAttribute("animation", "center");
+            justActivedTrackGroups.trackGroup.lastElementChild.remove();
         }
     })
 }
@@ -82,13 +78,9 @@ export async function pushNewPage(pageConstructor, targetTrack) {
     trackGroups[targetTrack].trackGroup.appendChild(page);
     trackGroups[targetTrack].level += 1;
     const newLastElement = trackGroups[targetTrack].trackGroup.children[trackGroups[targetTrack].level-1];
-    const elapsed = Date.now() - startTime;
-    const remainingDelay = Math.max(0, 200 - elapsed);
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                newLastElement.setAttribute("animation", "center");
-            });
+            newLastElement.setAttribute("animation", "center");
         });
-    }, remainingDelay);
+    });
 }

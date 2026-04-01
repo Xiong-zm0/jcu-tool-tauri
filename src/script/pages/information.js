@@ -100,9 +100,20 @@ function constructInformationCard(information) {
     let department = document.createElement("div");
     department.setAttribute("class", "information-card__department");
     department.innerText = information.signature;
+
     let timeTip = document.createElement("div");
+    let timeString;
+    if (information.release_time == null) {
+        timeString = "-";
+    } else {
+        const beijingTime = new Date(information.release_time * 1000);
+        const year = beijingTime.getFullYear();
+        const month = beijingTime.getMonth() + 1;
+        const day = beijingTime.getDate();
+        timeString = `${year}/${month}/${day}`;
+    }
     timeTip.setAttribute("class", "information-card__timetip");
-    timeTip.innerText = information.release_time;
+    timeTip.innerText = timeString;
 
     cover.appendChild(coverImg);
     informationCard.appendChild(coverCache);
