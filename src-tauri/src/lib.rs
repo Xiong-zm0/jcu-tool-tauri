@@ -11,12 +11,12 @@ use tauri_plugin_http::reqwest;
 
 use settings::Settings;
 use article::Article;
-use channel::{Channel, ChannelMainNews, ChannelMainNotice};
+use channel::Channel;
 
 
 struct AppState {
     settings: Settings,
-    channels: Vec<Arc<dyn Channel>>,
+    channels: Vec<Arc<dyn channel::Channel>>,
 }
 
 #[tauri::command]
@@ -27,8 +27,8 @@ async fn synchronize_channels(state: tauri::State<'_, Mutex<AppState>>) -> Resul
     };
 
     let mut all_articles = Vec::new();
-    for channel in channels {
-        let articles = channel.synchronize().await;
+    for c in channels {
+        let articles = c.synchronize().await;
         all_articles.extend(articles);
     }
     Ok(all_articles)
@@ -322,8 +322,9 @@ pub fn run() {
             let state = AppState {
                 settings: Settings {},
                 channels: vec![
-                    Arc::new(ChannelMainNews::new()),
-                    Arc::new(ChannelMainNotice::new()),
+                    Arc::new(channel::ChannelMainNews::new()),
+                    Arc::new(channel::ChannelMainNotice::new()),
+                    Arc::new(channel::ChannelYlcNotice::new())
                 ],
             };
             app.manage(Mutex::new(state));
