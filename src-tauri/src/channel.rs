@@ -1,15 +1,63 @@
+use std::path::PathBuf;
 use std::pin::Pin;
 use std::future::Future;
 
 use chrono::{self, FixedOffset, TimeZone};
 use tauri_plugin_http::reqwest;
 
-use crate::article::{self, Article};
+use crate::article;
+use crate::article::Article;
 
 
-pub trait Channel: Send + Sync {
-    fn new() -> Self where Self: Sized;
-    fn synchronize(&self) -> Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>>;
+#[derive(serde::Serialize, serde::Deserialize, Debug)]
+pub enum ChannelType {
+    MainNews,
+    MainNotice,
+    LibraryNews,
+    YlcNotice,
+    
+}
+
+// pub trait Channel: Send + Sync {
+//     fn new() -> Self where Self: Sized;
+//     fn synchronize(&self) -> Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>>;
+//     fn load_article(article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>>;
+// }
+
+pub enum Channel {
+    MiainNews(ChannelMainNews),
+    MainNotice(ChannelMainNotice),
+    LibraryNews(ChannelLibraryNews),
+    YlcNotice(ChannelYlcNotice),
+}
+
+impl Channel {
+    pub fn new(channel_enum: ChannelType) -> Self {
+        match channel_enum {
+            ChannelType::MainNews => Channel::MiainNews(ChannelMainNews::new()),
+            ChannelType::MainNotice => Channel::MainNotice(ChannelMainNotice::new()),
+            ChannelType::LibraryNews => Channel::LibraryNews(ChannelLibraryNews::new()),
+            ChannelType::YlcNotice => Channel::YlcNotice(ChannelYlcNotice::new()),
+        }
+    }
+
+    pub fn synchronize(&self) -> Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>> {
+        match self {
+            Channel::MiainNews(channel) => channel.synchronize(),
+            Channel::MainNotice(channel) => channel.synchronize(),
+            Channel::LibraryNews(channel) => channel.synchronize(),
+            Channel::YlcNotice(channel) => channel.synchronize(),
+        }
+    }
+
+    pub fn load_article(article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+        match article.get_channel() {
+            ChannelType::MainNews => ChannelMainNews::load_article(article),
+            ChannelType::MainNotice => ChannelMainNotice::load_article(article),
+            ChannelType::LibraryNews => ChannelLibraryNews::load_article(article),
+            ChannelType::YlcNotice => ChannelYlcNotice::load_article(article),
+        }
+    }
 }
 
 pub struct ChannelMainNews {
@@ -18,7 +66,7 @@ pub struct ChannelMainNews {
     viewed_url_suffix: Option<String>,
 }
 
-impl Channel for ChannelMainNews {
+impl ChannelMainNews {
     fn new() -> Self {
         Self {
             url_base: "https://www.jcu.edu.cn/home/tdxw.htm".into(),
@@ -76,7 +124,7 @@ impl Channel for ChannelMainNews {
                         Some(timestamp as f32)
                     });
 
-                let mut article = Article::new(article_url, article_title, release_time);
+                let mut article = Article::new(article_url, article_title, release_time, ChannelType::MainNews);
                 article.set_signature("主站新闻".into());
 
                 articles.push(article);
@@ -86,6 +134,10 @@ impl Channel for ChannelMainNews {
             articles
         })
     }
+
+    fn load_article(article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+        todo!()
+    }
 }
 
 pub struct ChannelMainNotice {
@@ -94,7 +146,7 @@ pub struct ChannelMainNotice {
     viewed_url_suffix: Option<String>,
 }
 
-impl Channel for ChannelMainNotice {
+impl ChannelMainNotice {
     fn new() -> Self {
         Self {
             url_base: "https://www.jcu.edu.cn/home/tzgg.htm".into(),
@@ -103,8 +155,7 @@ impl Channel for ChannelMainNotice {
         }
     }
 
-    fn synchronize(&self) -> 
-    Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>> {
+    fn synchronize(&self) -> Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>> {
         let url = match self.viewed_url_suffix {
             Some(ref suffix) => {
                 format!("{}{}{}", self.url_patten.0, suffix, self.url_patten.1)
@@ -153,7 +204,7 @@ impl Channel for ChannelMainNotice {
                         Some(timestamp as f32)
                     });
 
-                let mut article = Article::new(article_url, article_title, release_time);
+                let mut article = Article::new(article_url, article_title, release_time, ChannelType::MainNotice);
                 article.set_signature("主站公告".into());
 
                 articles.push(article);
@@ -163,6 +214,99 @@ impl Channel for ChannelMainNotice {
             articles
         })
     }
+
+    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+        let url = article.get_url().to_string();
+        let content_selector = scraper::Selector::parse("div.v_news_content").unwrap();
+
+        Box::pin(async move {
+            let mut passages = vec![];
+
+            let response = reqwest::get(&url).await.unwrap();
+            let body = response.text().await.unwrap();
+            let document = scraper::Html::parse_document(&body);
+            let content = document.select(&content_selector).next().unwrap();
+
+            for paragraph in content.child_elements() {
+                let paragraph_label = paragraph.value().name();
+                let passage = match paragraph_label {
+                    "p" => { // Text or Image
+                        ChannelMainNotice::parse_passage_img_or_text(paragraph)
+                    },
+                    "div" => { // Table
+                        // ChannelMainNotice::parse_passage_table(paragraph)
+                        None
+                    },
+                    _ => None,
+                };
+
+                if let Some(passage) = passage {
+                    passages.push(passage);
+                };
+            }
+
+            article.set_passages(passages);
+            article
+        })
+    }
+}
+
+impl ChannelMainNotice {
+    fn parse_passage_img_or_text(paragraph: scraper::ElementRef) -> Option<article::Passage> {
+        let img_selector = scraper::Selector::parse("img").unwrap();
+        let text_span_selector = scraper::Selector::parse("span").unwrap();
+        if let Some(img) = paragraph.select(&img_selector).next() {
+            let mut url = "https://www.jcu.edu.cn".to_string();
+            url.push_str(
+                img
+                    .value()
+                    .attr("src")
+                    .unwrap_or("")
+            );
+
+            Some(article::Passage::Image(article::Image::new(url)))
+        } else if let Some(text_span) = paragraph.select(&text_span_selector).next() {
+            let mut text_segments = vec![];
+            let is_right_aligned = paragraph
+                .value()
+                .attr("style")
+                .map_or(false, |style| {
+                    println!("Paragraph style: {}", style);
+                    style.contains("text-align: right") || style.contains("text-align:right")
+                });
+
+            for child in text_span.children() {
+                match child.value() {
+                    scraper::Node::Text(text_node) => {
+                        let text = text_node.text.trim().to_string();
+                        let style = if is_right_aligned {
+                            vec![article::Style::Right]
+                        } else {
+                            vec![]
+                        };
+                        text_segments.push(article::TextSegment::new(text, style));
+                    },
+                    scraper::Node::Element(_) => {
+                        if let Some(element_ref) = scraper::ElementRef::wrap(child) {
+                            if element_ref.value().name() == "strong" {
+                                let text = element_ref.text().collect::<String>().trim().to_string();
+                                let style = vec![article::Style::Bold];
+                                text_segments.push(article::TextSegment::new(text, style));
+                            }
+                        }
+                    },
+                    _ => {},
+                }
+            }
+            Some(article::Passage::Text(text_segments))
+        } else {
+            panic!("Unexpected passage format in article: {:?}", paragraph.inner_html());
+        }
+    }
+
+    fn parse_passage_table(paragraph: scraper::ElementRef) -> Option<article::Passage> {
+        todo!()
+    }
 }
 
 pub struct ChannelLibraryNews {
@@ -171,13 +315,17 @@ pub struct ChannelLibraryNews {
     viewed_url_suffix: Option<String>,
 }
 
-impl Channel for ChannelLibraryNews {
+impl ChannelLibraryNews {
     fn new() -> Self where Self: Sized {
         todo!()
     }
 
     fn synchronize(&self) ->
     Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>> {
+        todo!()
+    }
+
+    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
         todo!()
     }
 }
@@ -188,7 +336,7 @@ pub struct ChannelYlcNotice { // Ylc: Youth League Committee
     viewed_url_suffix: Option<String>,
 }
 
-impl Channel for ChannelYlcNotice {
+impl ChannelYlcNotice {
     fn new() -> Self where Self: Sized {
         Self {
             url_base: "https://tuanwei.jcu.edu.cn/gg.htm".into(),
@@ -197,8 +345,7 @@ impl Channel for ChannelYlcNotice {
         }
     }
 
-    fn synchronize(&self) ->
-        Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>> {
+    fn synchronize(&self) -> Pin<Box<dyn Future<Output = Vec<Article>> + Send + '_>> {
         let url = match self.viewed_url_suffix {
             Some(ref suffix) => {
                 format!("{}{}{}", self.url_patten.0, suffix, self.url_patten.1)
@@ -256,7 +403,7 @@ impl Channel for ChannelYlcNotice {
                         Some(timestamp as f32)
                     });
 
-                let mut article = Article::new(article_url, article_title, release_time);
+                let mut article = Article::new(article_url, article_title, release_time, ChannelType::YlcNotice);
                 article.set_signature("团委公告".into());
 
                 articles.push(article);
@@ -265,5 +412,9 @@ impl Channel for ChannelYlcNotice {
             
             articles
         })
+    }
+
+    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+        todo!()
     }
 }

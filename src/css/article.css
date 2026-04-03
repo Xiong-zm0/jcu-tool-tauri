@@ -1,4 +1,4 @@
-.artical-page {
+.article-page {
     margin: auto;
     max-width: 50em;
 
@@ -7,20 +7,24 @@
     border-radius: 0.5em;
 }
 
-.artical-page h1 {
+.article-page h1 {
     text-align: center;
 }
 
-.artical-page h6 {
+.article-page h6 {
     margin: 1em 0;
     text-align: center;
 }
 
-.artical-page p {
+.article-page p {
     margin: 1em 0;
 }
 
-.artical-page img {
+.article-page .align-right {
+    text-align: right;
+}
+
+.article-page img {
     display: block;
     margin: 1em auto;
     max-width: 100%;
@@ -28,11 +32,13 @@
 }
 
 @media screen and (max-width: 648px) {
-    .artical-page {
+    .article
+-page {
         padding: 1em 0.75em;
     }
 
-    .artical-page h1 {
+    .article
+-page h1 {
         text-align: center;
         font-size: 1.25em;
     }

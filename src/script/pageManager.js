@@ -22,8 +22,8 @@ let trackGroups = {
 
 let activeId = "#navigation-news";
 
-bindBackButton();
 initMainView();
+bindBackButton();
 bindTrackManagerButton();
 
 function initMainView() {
@@ -73,7 +73,6 @@ export async function pushNewPage(pageConstructor, targetTrack) {
     const oldLastElement = trackGroups[targetTrack].trackGroup.children[trackGroups[targetTrack].level-1];
     oldLastElement.setAttribute("animation", "left");
 
-    const startTime = Date.now();
     let page = await pageConstructor();
     trackGroups[targetTrack].trackGroup.appendChild(page);
     trackGroups[targetTrack].level += 1;

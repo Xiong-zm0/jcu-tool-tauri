@@ -1,7 +1,7 @@
 const { invoke } = window.__TAURI__.core;
 
 import { pushNewPage } from "../pageManager.js";
-import { constructArtical } from "./artical.js";
+import { constructArticle } from "./article.js";
 
 export async function loadInformation() {
     const pageNode = document.querySelector(".information-page");
@@ -42,7 +42,6 @@ export async function loadInformation() {
 async function fetchInformation(dataEpochs) {
     if (dataEpochs == "new") {
         let informations = await invoke("synchronize_channels");
-        console.log(informations);
         return informations;
     } else if (dataEpochs == "ancient") {
         return [
@@ -50,7 +49,7 @@ async function fetchInformation(dataEpochs) {
                 "title": "校党委常委会专题学习二十届中央纪委五次全会和省纪委十五届六次全会精神66666 6666 666666 666666666",
                 "coverCache": "stroge/A2F26E17EF1F823AD3F6A0CC399_FCC9A8E6_47A5CA.jpg",
                 "coverUrl": "https://www.jcu.edu.cn/__local/8/A9/B7/A2F26E17EF1F823AD3F6A0CC399_FCC9A8E6_47A5CA.jpg",
-                "articalURL": "https://www.jcu.edu.cn/info/1056/50823.htm",
+                "articleURL": "https://www.jcu.edu.cn/info/1056/50823.htm",
                 "department": "景德镇陶瓷大学",
                 "releaseTime": 6546546.187,
             }, {
@@ -77,8 +76,8 @@ function constructInformationCard(information) {
     let informationCard = document.createElement("button");
     informationCard.setAttribute("class", "information-card card");
     informationCard.addEventListener("click", async () => {
-        let articalNodeConstructor = () => constructArtical(information.url);
-        pushNewPage(articalNodeConstructor, "#navigation-news");
+        let articleNodeConstructor = () => constructArticle(information);
+        pushNewPage(articleNodeConstructor, "#navigation-news");
     });
 
     let coverCache = document.createElement("div");
