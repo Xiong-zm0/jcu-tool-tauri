@@ -32,13 +32,11 @@
 }
 
 @media screen and (max-width: 648px) {
-    .article
--page {
+    .article-page {
         padding: 1em 0.75em;
     }
 
-    .article
--page h1 {
+    .article-page h1 {
         text-align: center;
         font-size: 1.25em;
     }

@@ -135,7 +135,7 @@ impl ChannelMainNews {
         })
     }
 
-    fn load_article(article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+    fn load_article(article: Article) -> Pin<Box<dyn Future<Output = Article> + Send>> {
         todo!()
     }
 }
@@ -167,7 +167,6 @@ impl ChannelMainNotice {
 
         let article_selector = scraper::Selector::parse("li.text_list_li").unwrap();
         let article_url_selector = scraper::Selector::parse("a").unwrap();
-        let article_title_selector = scraper::Selector::parse("span.a_tit").unwrap();
         let article_time_selector = scraper::Selector::parse("span.a_dt").unwrap();
 
         Box::pin(async move {
@@ -187,10 +186,9 @@ impl ChannelMainNotice {
                     .replace("../", "https://www.jcu.edu.cn/");
 
                 let article_title = element
-                    .select(&article_title_selector)
-                    .next()
-                    .map(|el| el.text().collect::<String>())
-                    .unwrap_or_else(|| "[无标题]".to_string());
+                    .value().attr("title")
+                    .unwrap_or("[None Title]")
+                    .to_string();
 
                 let release_time = element
                     .select(&article_time_selector)
@@ -215,7 +213,7 @@ impl ChannelMainNotice {
         })
     }
 
-    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send>> {
         let url = article.get_url().to_string();
         let content_selector = scraper::Selector::parse("div.v_news_content").unwrap();
 
@@ -325,7 +323,7 @@ impl ChannelLibraryNews {
         todo!()
     }
 
-    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send>> {
         todo!()
     }
 }
@@ -414,7 +412,7 @@ impl ChannelYlcNotice {
         })
     }
 
-    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send + 'static>> {
+    fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send>> {
         todo!()
     }
 }
