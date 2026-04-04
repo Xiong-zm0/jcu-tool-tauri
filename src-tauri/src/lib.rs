@@ -46,6 +46,7 @@ pub fn run() {
             let state = AppState {
                 settings: Settings {},
                 channels: vec![
+                    Arc::new(channel::Channel::new(ChannelType::MainNews)),
                     Arc::new(channel::Channel::new(ChannelType::MainNotice)),
                 ],
             };
