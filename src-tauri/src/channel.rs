@@ -3,6 +3,8 @@ use std::pin::Pin;
 use std::future::Future;
 
 use chrono::{self, FixedOffset, TimeZone};
+use scraper::element_ref;
+use tauri::webview::cookie::time;
 use tauri_plugin_http::reqwest;
 
 use crate::article;
@@ -167,7 +169,6 @@ impl ChannelMainNotice {
 
         let article_selector = scraper::Selector::parse("li.text_list_li").unwrap();
         let article_url_selector = scraper::Selector::parse("a").unwrap();
-        let article_time_selector = scraper::Selector::parse("span.a_dt").unwrap();
 
         Box::pin(async move {
             let mut articles = vec![];
@@ -190,17 +191,7 @@ impl ChannelMainNotice {
                     .unwrap_or("[None Title]")
                     .to_string();
 
-                let release_time = element
-                    .select(&article_time_selector)
-                    .next()
-                    .map(|el| el.text().collect::<String>())
-                    .and_then(|time_str| {
-                        let naive_date = chrono::NaiveDate::parse_from_str(&time_str, "%Y-%m-%d").ok()?;
-                        let naive_datetime = naive_date.and_hms_opt(12, 0, 0)?;
-                        let beijing_offset = FixedOffset::east_opt(8 * 3600)?;
-                        let timestamp = beijing_offset.from_local_datetime(&naive_datetime).single()?.timestamp();
-                        Some(timestamp as f32)
-                    });
+                let release_time = None;
 
                 let mut article = Article::new(article_url, article_title, release_time, ChannelType::MainNotice);
                 article.set_signature("主站公告".into());
@@ -215,6 +206,7 @@ impl ChannelMainNotice {
 
     fn load_article(mut article: Article) -> Pin<Box<dyn Future<Output = Article> + Send>> {
         let url = article.get_url().to_string();
+        let article_time_selector = scraper::Selector::parse("div.c_extra").unwrap();
         let content_selector = scraper::Selector::parse("div.v_news_content").unwrap();
 
         Box::pin(async move {
@@ -224,6 +216,19 @@ impl ChannelMainNotice {
             let body = response.text().await.unwrap();
             let document = scraper::Html::parse_document(&body);
             let content = document.select(&content_selector).next().unwrap();
+
+            let release_time = document
+                .select(&article_time_selector)
+                .next()
+                .map(|el| el.text().collect::<String>())
+                .and_then(|time_str| {
+                    let time_str = &time_str[9..19];
+                    let naive_date = chrono::NaiveDate::parse_from_str(&time_str, "%Y-%m-%d").ok()?;
+                    let naive_datetime = naive_date.and_hms_opt(12, 0, 0)?;
+                    let beijing_offset = FixedOffset::east_opt(8 * 3600)?;
+                    let timestamp = beijing_offset.from_local_datetime(&naive_datetime).single()?.timestamp();
+                    Some(timestamp as f32)
+                });
 
             for paragraph in content.child_elements() {
                 let paragraph_label = paragraph.value().name();
@@ -243,6 +248,9 @@ impl ChannelMainNotice {
                 };
             }
 
+            if let Some(release_time) = release_time {
+                article.set_release_time(release_time);
+            }
             article.set_passages(passages);
             article
         })
@@ -269,8 +277,8 @@ impl ChannelMainNotice {
                 .value()
                 .attr("style")
                 .map_or(false, |style| {
-                    println!("Paragraph style: {}", style);
-                    style.contains("text-align: right") || style.contains("text-align:right")
+                    style.contains("text-align: right") ||
+                    style.contains("text-align:right")
                 });
 
             for child in text_span.children() {
@@ -290,6 +298,9 @@ impl ChannelMainNotice {
                                 let text = element_ref.text().collect::<String>().trim().to_string();
                                 let style = vec![article::Style::Bold];
                                 text_segments.push(article::TextSegment::new(text, style));
+                            } else {
+                                let text = paragraph.text().collect::<String>();
+                                text_segments.push(article::TextSegment::new(text, vec![]));
                             }
                         }
                     },
@@ -298,7 +309,10 @@ impl ChannelMainNotice {
             }
             Some(article::Passage::Text(text_segments))
         } else {
-            panic!("Unexpected passage format in article: {:?}", paragraph.inner_html());
+            let mut text_segments = vec![];
+            let t = paragraph.text().collect::<String>();
+            text_segments.push(article::TextSegment::new(t, vec![]));
+            Some(article::Passage::Text(text_segments))
         }
     }
 

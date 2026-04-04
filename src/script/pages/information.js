@@ -73,13 +73,6 @@ function constructGroup(id) {
 }
 
 function constructInformationCard(information) {
-    let informationCard = document.createElement("button");
-    informationCard.setAttribute("class", "information-card card");
-    informationCard.addEventListener("click", async () => {
-        let articleNodeConstructor = () => constructArticle(information);
-        pushNewPage(articleNodeConstructor, "#navigation-news");
-    });
-
     let coverCache = document.createElement("div");
     coverCache.setAttribute("class", "information-card__cover");
     let cover = document.createElement("div");
@@ -113,6 +106,18 @@ function constructInformationCard(information) {
     }
     timeTip.setAttribute("class", "information-card__timetip");
     timeTip.innerText = timeString;
+
+    let resetTime = (timeString) => {
+        console.log(654)
+        timeTip.innerText = timeString;
+    };
+
+    let informationCard = document.createElement("button");
+    informationCard.setAttribute("class", "information-card card");
+    informationCard.addEventListener("click", async () => {
+        let articleNodeConstructor = () => constructArticle(information, resetTime);
+        pushNewPage(articleNodeConstructor, "#navigation-news");
+    });
 
     cover.appendChild(coverImg);
     informationCard.appendChild(coverCache);

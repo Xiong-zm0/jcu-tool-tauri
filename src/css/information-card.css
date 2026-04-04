@@ -71,7 +71,7 @@
     .information-card-group {
         gap: 0.5em;
         grid-template-columns: repeat(
-            auto-fill, minmax(170px, 1fr)
+            auto-fill, minmax(160px, 1fr)
     );
     }
 }

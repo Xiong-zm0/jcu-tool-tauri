@@ -36,6 +36,8 @@ pub enum Style {
     Append,
     Bold,
     Right,
+    Highlight,
+    Underline,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -84,6 +86,10 @@ impl Article {
 
     pub fn set_cover(&mut self, cover: Image) {
         self.cover = Some(cover);
+    }
+
+    pub fn set_release_time(&mut self, time: f32) {
+        self.release_time = Some(time);
     }
 
     pub fn set_passages(&mut self, passages: Vec<Passage>) {

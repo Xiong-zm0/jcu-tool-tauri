@@ -1,6 +1,8 @@
 const { invoke } = window.__TAURI__.core;
 
-export async function constructArticle(article) {
+export async function constructArticle(article, resetTime) {
+    // if infoCard set a information card node, will try to sync
+    // new information on the card.
     article = await invoke("load_article", {article: article});
 
     let articleTrackNode = document.createElement("div");
@@ -14,14 +16,26 @@ export async function constructArticle(article) {
     titleNode.innerText = article.title;
     articleNode.appendChild(titleNode);
 
+    let timeString;
+    if (article.release_time == null) {
+        timeString = "-";
+    } else {
+        const beijingTime = new Date(article.release_time * 1000);
+        const year = beijingTime.getFullYear();
+        const month = beijingTime.getMonth() + 1;
+        const day = beijingTime.getDate();
+        timeString = `${year}/${month}/${day}`;
+    }
     let releaseTimeNode = document.createElement("h6");
-    releaseTimeNode.innerText = article.release_time;
+    releaseTimeNode.innerText = timeString;
     articleNode.appendChild(releaseTimeNode);
+    if (resetTime) {
+        resetTime(timeString);
+    }
 
     for (let passage of article.passages) {
         let passageNode;
         if (passage.Text && passage.Text.length > 0) {
-            console.log(passage.Text);
             passageNode = document.createElement("p");
             constructTextPassage(passage, passageNode);
         } else if (passage.Image != null) {
