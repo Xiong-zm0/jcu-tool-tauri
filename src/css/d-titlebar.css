@@ -1,5 +1,4 @@
 .d-titlebar {
     grid-area: d-titlebar;
-    height: env(safe-area-inset-top);
     background-color: blueviolet;
 }

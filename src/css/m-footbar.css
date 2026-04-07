@@ -1,6 +1,7 @@
 .m-footbar {
     background-color: blueviolet;
     grid-area: m-footbar;
+    padding-bottom: env(safe-area-inset-bottom);
 
     display: flex;
 }

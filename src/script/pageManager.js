@@ -35,38 +35,46 @@ function initMainView() {
 }
 
 function bindBackButton() {
-    let backButton = document.querySelector("#navigation-back");
-    backButton.addEventListener("click", () => {
-        const justActivedTrackGroups = trackGroups[activeId];
-        if (justActivedTrackGroups.level > 1) {
-            justActivedTrackGroups.level -= 1;
-            const lastSecondElement = justActivedTrackGroups.trackGroup.children[justActivedTrackGroups.level-1];
-            justActivedTrackGroups.trackGroup.lastElementChild.setAttribute("animation", "leave");
-            lastSecondElement.setAttribute("animation", "display");
-            justActivedTrackGroups.trackGroup.lastElementChild.remove();
-        }
-    })
+    document.querySelectorAll("#navigation-back")
+        .forEach((element) => {
+            element.addEventListener("click", () => {
+                const justActivedTrackGroups = trackGroups[activeId];
+                if (justActivedTrackGroups.level > 1) {
+                    justActivedTrackGroups.level -= 1;
+                    const lastSecondElement = justActivedTrackGroups.trackGroup.children[justActivedTrackGroups.level-1];
+                    justActivedTrackGroups.trackGroup.lastElementChild.setAttribute("animation", "leave");
+                    lastSecondElement.setAttribute("animation", "display");
+                    justActivedTrackGroups.trackGroup.lastElementChild.remove();
+                }
+            })
+        })
 }
 
 function bindTrackManagerButton() {
     for (let buttonId of Object.keys(trackGroups)) {
-        let button = document.querySelector(buttonId);
-        button.setAttribute("aria-pressed", "false");
-        button.addEventListener("click", () => changePageStake(buttonId))
+        document.querySelectorAll(buttonId).forEach((element) => {
+            element.setAttribute("aria-pressed", "false");
+            element.addEventListener("click", () => changePageStake(buttonId));
+        })
     }
 
     document
-        .querySelector("#navigation-news")
-        .setAttribute("aria-pressed", "true");
+        .querySelectorAll("#navigation-news")
+        .forEach((element) => {
+            element.setAttribute("aria-pressed", "true");
+        })
 }
 
 function changePageStake(buttonId) {
-    console.log("pressed");
     trackGroups[activeId].trackGroup.setAttribute("hidden", "");
-    document.querySelector(activeId).setAttribute("aria-pressed", "false");
+    document.querySelectorAll(activeId).forEach((element) => {
+        element.setAttribute("aria-pressed", "false")
+    });
     activeId = buttonId;
     trackGroups[activeId].trackGroup.removeAttribute("hidden");
-    document.querySelector(activeId).setAttribute("aria-pressed", "true");
+    document.querySelectorAll(activeId).forEach((element) => {
+        element.setAttribute("aria-pressed", "true");
+    });
 }
 
 export async function pushNewPage(pageConstructor, targetTrack) {

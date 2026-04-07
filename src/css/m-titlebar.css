@@ -1,6 +1,7 @@
 .m-titlebar {
     background-color: blueviolet;
     grid-area: m-titlebar;
+    padding-top: env(safe-area-inset-top);
 
     display: flex;
 }
