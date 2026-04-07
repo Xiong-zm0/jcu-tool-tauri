@@ -1,7 +1,7 @@
 .footbar-desktop {
     z-index: 1;
     background-color: blueviolet;
-    grid-area: footbar;
+    grid-area: d-footbar;
 
     display: flex;
     padding-bottom: env(safe-area-inset-bottom);

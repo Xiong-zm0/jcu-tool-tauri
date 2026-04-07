@@ -1,25 +1,11 @@
+:root {
+    --theme-color: #1e59a8;
+}
+
 * {
     margin: 0;
     border: 0;
     padding: 0;
-}
-
-.window {
-    height: 100vh;
-    background-color: rgb(191, 156, 225);
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: auto 1fr;
-    grid-template-areas: 
-        "titlebar titlebar"
-        "sidebar body"
-        "footbar footbar";
-}
-
-.window-titlebar {
-    grid-area: titlebar;
-    height: env(safe-area-inset-top);
-    background-color: blueviolet;
 }
 
 .window-main-view {
@@ -56,7 +42,7 @@
         transform 1.5s cubic-bezier(0, 0, 0.58, 1);
 }
 
-.carousel-track[animation=left] {
+.carousel-track[animation=covered] {
     opacity: 0;
     transform: translateX(0%) scale(0.96);
 
@@ -65,7 +51,7 @@
         transform 0.1s cubic-bezier(0.58, 0, 1, 1);
 }
 
-.carousel-track[animation=center] {
+.carousel-track[animation=display] {
     opacity: 1;
     transform: translateX(0%) scale(1);
 
@@ -74,7 +60,7 @@
         transform 0.15s cubic-bezier(0, 0, 0.58, 1);
 }
 
-.carousel-track[animation=right] {
+.carousel-track[animation=leave] {
     opacity: 0;
     transform: translateX(5%) scale(1);
 }

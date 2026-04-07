@@ -57,16 +57,6 @@
 
 @media screen and (max-width: 648px) {
     .navigation-container {
-        grid-area: footbar;
-        flex-direction: row;
-        padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    .navigation {
-        flex-grow: 1;
-    }
-
-    .navigation-container__split-line {
         display: none;
     }
 }

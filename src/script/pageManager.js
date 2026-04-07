@@ -41,8 +41,8 @@ function bindBackButton() {
         if (justActivedTrackGroups.level > 1) {
             justActivedTrackGroups.level -= 1;
             const lastSecondElement = justActivedTrackGroups.trackGroup.children[justActivedTrackGroups.level-1];
-            justActivedTrackGroups.trackGroup.lastElementChild.setAttribute("animation", "right");
-            lastSecondElement.setAttribute("animation", "center");
+            justActivedTrackGroups.trackGroup.lastElementChild.setAttribute("animation", "leave");
+            lastSecondElement.setAttribute("animation", "display");
             justActivedTrackGroups.trackGroup.lastElementChild.remove();
         }
     })
@@ -71,7 +71,7 @@ function changePageStake(buttonId) {
 
 export async function pushNewPage(pageConstructor, targetTrack) {
     const oldLastElement = trackGroups[targetTrack].trackGroup.children[trackGroups[targetTrack].level-1];
-    oldLastElement.setAttribute("animation", "left");
+    oldLastElement.setAttribute("animation", "covered");
 
     let page = await pageConstructor();
     trackGroups[targetTrack].trackGroup.appendChild(page);
@@ -79,7 +79,7 @@ export async function pushNewPage(pageConstructor, targetTrack) {
     const newLastElement = trackGroups[targetTrack].trackGroup.children[trackGroups[targetTrack].level-1];
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            newLastElement.setAttribute("animation", "center");
+            newLastElement.setAttribute("animation", "display");
         });
     });
 }

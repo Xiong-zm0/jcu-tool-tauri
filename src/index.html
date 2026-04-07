@@ -2,359 +2,505 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/footbar-desktop.css">
-  <link rel="stylesheet" href="css/navigatoin.css">
-  <link rel="stylesheet" href="css/card.css">
-  <link rel="stylesheet" href="css/information-card.css">
-  <link rel="stylesheet" href="css/article.css">
-  <link rel="stylesheet" href="css/settings.css">
-  <title>JCU 聚焦</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/window.css">
+   <link rel="stylesheet" href="css/d-footbar.css">
+   <link rel="stylesheet" href="css/d-titlebar.css">
+   <link rel="stylesheet" href="css/m-footbar.css">
+   <link rel="stylesheet" href="css/m-titlebar.css">
+   <link rel="stylesheet" href="css/sidebar.css">
+   <link rel="stylesheet" href="css/card.css">
+   <link rel="stylesheet" href="css/information-card.css">
+   <link rel="stylesheet" href="css/article.css">
+   <link rel="stylesheet" href="css/settings.css">
+   <title>JCU 聚焦</title>
 </head>
 
 <body>
-  <div class="window">
-    <div class="window-titlebar">
-      
-    </div>
-
-    <div class="window-main-view">
-      <div class="track-group" id="news-track-group">
-        <div class="carousel-track" id="news-carousel-track" animation="center">
-          <div class="information-page">
-
-          </div>
-        </div>
-      </div>
-      <div class="track-group" id="search-track-group">
+   <div class="window">
+      <div class="d-titlebar">
 
       </div>
-      <div class="track-group" id="star-track-group">
-        
-      </div>
-      <div class="track-group" id="setting-track-group">
-        <div class="carousel-track" animation="center">
-          <div class="setting-page">
-            <div class="setting-section card">
-               <div class="setting-section__title">显示</div>
-               <button class="setting-section__item">
-                  <div class="item__title">主题色</div>
-                  <div class="item__typetip"></div>
-               </button>
-               <button class="setting-section__item">安全区</button>
-               <button class="setting-section__item">详细设置</button>
+
+      <div class="m-titlebar">
+         <button class="navigation" id="navigation-back">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     sodipodi:docname="back.svg" inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g id="g1" transform="translate(-0.49712765,0.13038437)">
+                        <rect style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304802" id="rect2"
+                           width="7.2726498" height="1.5515167" x="6.7879272" y="0.45642081" ry="0.77575833"
+                           transform="rotate(45)" />
+                        <rect style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304802" id="rect2-5"
+                           width="7.2726498" height="1.5515167" x="-5.2647123" y="-8.3394442" ry="0.77575833"
+                           transform="rotate(135)" />
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">返回</div>
             </div>
-
-            <div class="setting-section card">
-               <div class="setting-section__title">存储</div>
-               <button class="setting-section__item">启用缓存</button>
-               <button class="setting-section__item">详细设置</button>
+         </button>
+         
+         <div class="navigation-container__split-line"></div>
+         
+         <button class="navigation" id="navigation-more">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+   <svg
+      width="48"
+      height="48"
+      viewBox="0 0 12.7 12.7"
+      version="1.1"
+      id="svg1"
+      sodipodi:docname="more2.svg"
+      inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+      inkscape:export-filename="more2.svg"
+      inkscape:export-xdpi="96"
+      inkscape:export-ydpi="96"
+      xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:svg="http://www.w3.org/2000/svg">
+   <defs
+      id="defs1" />
+   <g
+      inkscape:label="图层 1"
+      inkscape:groupmode="layer"
+      id="layer1">
+      <path
+         d="M 1.3999146,0 C 0.62431456,0 0,0.62431456 0,1.3999146 v 3.1501953 c 0,0.7756 0.62431456,1.3999145 1.3999146,1.3999145 h 3.1501953 c 0.7756,0 1.3999145,-0.6243145 1.3999145,-1.3999145 V 1.3999146 C 5.9500244,0.62431456 5.3257099,0 4.5501099,0 Z m 0.2439127,1.1363647 h 2.6628866 c 0.280965,0 0.5069458,0.2264976 0.5069458,0.5074626 v 2.6623698 c 0,0.280965 -0.2259808,0.5074626 -0.5069458,0.5074626 H 1.6438273 c -0.280965,0 -0.5069458,-0.2264976 -0.5069458,-0.5074626 V 1.6438273 c 0,-0.280965 0.2259808,-0.5074626 0.5069458,-0.5074626 z"
+         style="fill:#ffffff;stroke-width:2.39207;stroke-linecap:round;stroke-linejoin:round"
+         id="path5" />
+      <path
+         d="m 8.1498901,0 c -0.7756,0 -1.3999145,0.62431456 -1.3999145,1.3999146 v 3.1501953 c 0,0.7756 0.6243145,1.3999145 1.3999145,1.3999145 h 3.1501949 c 0.7756,0 1.399915,-0.6243145 1.399915,-1.3999145 V 1.3999146 C 12.7,0.62431456 12.075685,0 11.300085,0 Z m 0.2439128,1.1363647 h 2.6628861 c 0.280965,0 0.506946,0.2264976 0.506946,0.5074626 v 2.6623698 c 0,0.280965 -0.225981,0.5074626 -0.506946,0.5074626 H 8.3938029 c -0.280965,0 -0.5069458,-0.2264976 -0.5069458,-0.5074626 V 1.6438273 c 0,-0.280965 0.2259808,-0.5074626 0.5069458,-0.5074626 z"
+         style="fill:#ffffff;stroke-width:2.39207;stroke-linecap:round;stroke-linejoin:round"
+         id="path6" />
+      <path
+         d="m 8.1498901,6.7499756 c -0.7756,0 -1.3999145,0.6243145 -1.3999145,1.3999145 v 3.1501949 c 0,0.7756 0.6243145,1.399915 1.3999145,1.399915 H 11.300085 C 12.075685,12.7 12.7,12.075685 12.7,11.300085 V 8.1498901 c 0,-0.7756 -0.624315,-1.3999145 -1.399915,-1.3999145 z m 0.2439128,1.1363647 h 2.6628861 c 0.280965,0 0.506946,0.2264976 0.506946,0.5074626 v 2.6623701 c 0,0.280965 -0.225981,0.507462 -0.506946,0.507462 H 8.3938029 c -0.280965,0 -0.5069458,-0.226497 -0.5069458,-0.507462 V 8.3938029 c 0,-0.280965 0.2259808,-0.5074626 0.5069458,-0.5074626 z"
+         style="fill:#ffffff;stroke-width:2.39207;stroke-linecap:round;stroke-linejoin:round"
+         id="path8" />
+      <path
+         d="M 1.3999146,6.7499756 C 0.62431456,6.7499756 0,7.3742901 0,8.1498901 V 11.300085 C 0,12.075685 0.62431456,12.7 1.3999146,12.7 h 3.1501953 c 0.7756,0 1.3999145,-0.624315 1.3999145,-1.399915 V 8.1498901 c 0,-0.7756 -0.6243145,-1.3999145 -1.3999145,-1.3999145 z m 0.2439127,1.1363647 h 2.6628866 c 0.280965,0 0.5069458,0.2264976 0.5069458,0.5074626 v 2.6623701 c 0,0.280965 -0.2259808,0.507462 -0.5069458,0.507462 H 1.6438273 c -0.280965,0 -0.5069458,-0.226497 -0.5069458,-0.507462 V 8.3938029 c 0,-0.280965 0.2259808,-0.5074626 0.5069458,-0.5074626 z"
+         style="fill:#ffffff;stroke-width:2.39207;stroke-linecap:round;stroke-linejoin:round"
+         id="path7" />
+   </g>
+   </svg>
+               </div>
+               <div class="navigation__text">更多</div>
             </div>
-
-            <div class="setting-section card">
-               <div class="setting-section__title">新闻页</div>
-               <button class="setting-section__item">高亮关键词</button>
-               <button class="setting-section__item">替换关键词</button>
-               <button class="setting-section__item">详细设置</button>
-            </div>
-          </div>
-        </div>
+         </button>
       </div>
-    </div>
 
-    <div class="navigation-container">
-      <button class="navigation" id="navigation-back">
-        <div class="navigation__view">
-          <div class="navigation__icon">
-<svg
-   width="48"
-   height="48"
-   viewBox="0 0 12.7 12.7"
-   version="1.1"
-   id="svg1"
-   sodipodi:docname="back.svg"
-   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     id="g1"
-     transform="translate(-0.49712765,0.13038437)">
-    <rect
-       style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304802"
-       id="rect2"
-       width="7.2726498"
-       height="1.5515167"
-       x="6.7879272"
-       y="0.45642081"
-       ry="0.77575833"
-       transform="rotate(45)" />
-    <rect
-       style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304802"
-       id="rect2-5"
-       width="7.2726498"
-       height="1.5515167"
-       x="-5.2647123"
-       y="-8.3394442"
-       ry="0.77575833"
-       transform="rotate(135)" />
-  </g>
-</svg>
-          </div>
-          <div class="navigation__text">返回</div>
-        </div>
-      </button>
-      <button class="navigation"id="navigation-news">
-        <div class="navigation__view" >
-          <div class="navigation__icon">
-<svg
-   width="48"
-   height="48"
-   viewBox="0 0 12.7 12.7"
-   version="1.1"
-   id="svg1"
-   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
-   sodipodi:docname="news.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     inkscape:label="图层 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <g
-       id="g82"
-       transform="translate(-0.17905935,0.6224425)">
-      <path
-         d="M 4.0405802,0.920874 H 3.120223 v 8.6940428 h 0.9203572 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.72701;stroke-linecap:round;stroke-linejoin:round"
-         id="path62" />
-      <path
-         d="m 12.700001,0.9208738 h -0.920358 v 8.694043 h 0.920358 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.72701;stroke-linecap:round;stroke-linejoin:round"
-         id="path62-3" />
-      <path
-         d="m 4.041097,0 v 5.167e-4 0.9033041 h 7.738029 V 0 Z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.679767;stroke-linecap:round;stroke-linejoin:round"
-         id="path67" />
-      <path
-         d="m 2.2016655,10.534939 v 5.25e-4 0.919496 h 8.6569225 v -0.920021 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.725412;stroke-linecap:round;stroke-linejoin:round"
-         id="path67-3" />
-      <path
-         d="m 5.1206177,1.5322062 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.1506473 -0.07281,0.2834071 -0.185518,0.3653524 -0.02132,0.015536 -0.04427,0.029163 -0.06821,0.040824 -0.01197,0.00582 -0.02415,0.011254 -0.03669,0.01602 -0.05016,0.019109 -0.104716,0.029456 -0.161748,0.029456 H 5.1206177 c -0.015477,0 -0.031443,-5.654e-4 -0.046509,-0.00207 -0.00227,-2.291e-4 -0.00446,-7.711e-4 -0.00672,-0.00103 -0.024067,-0.00282 -0.047542,-0.00753 -0.07028,-0.013953 -0.00361,-0.00101 -0.0078,-0.002 -0.011369,-0.0031 C 4.8441016,2.3720482 4.7329444,2.2603743 4.6891195,2.1187337 c -8.808e-4,-0.00286 -0.00124,-0.0059 -0.00207,-0.00879 -0.00683,-0.023724 -0.012094,-0.048201 -0.014986,-0.07338 -2.187e-4,-0.00192 -8.388e-4,-0.00427 -0.00103,-0.0062 -0.0015,-0.015065 -0.00207,-0.030515 -0.00207,-0.045992 0,-0.015214 6.154e-4,-0.030138 0.00207,-0.044958 0.00291,-0.029636 0.00874,-0.058653 0.017053,-0.0863 0.00415,-0.013827 0.00907,-0.02708 0.014469,-0.040308 0.010808,-0.026446 0.023884,-0.051813 0.039274,-0.075448 0.047883,-0.073651 0.1170259,-0.132528 0.1984375,-0.1679484 0.055159,-0.023929 0.1161723,-0.037207 0.1803508,-0.037207 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
-         id="path78" />
-      <path
-         d="m 5.1206177,3.0644124 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 5.1206177 c -0.2106486,0 -0.3866484,-0.1430411 -0.4371826,-0.3374471 -0.00946,-0.036549 -0.014469,-0.075137 -0.014469,-0.1147217 0,-0.028001 0.00241,-0.055599 0.00723,-0.082165 0.00241,-0.013285 0.00525,-0.026427 0.00879,-0.039274 0.026471,-0.095787 0.084179,-0.1789232 0.1607137,-0.2377116 0.025264,-0.019368 0.053055,-0.036394 0.082166,-0.050126 0.029115,-0.013696 0.060337,-0.024258 0.092501,-0.031523 0.032173,-0.00723 0.065826,-0.011369 0.1002523,-0.011369 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
-         id="path77" />
-      <path
-         d="m 8.8366699,4.5966186 h 1.8629351 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 8.8366699 c -0.250408,0 -0.4521688,-0.2017608 -0.4521688,-0.4521688 0,-0.250408 0.2017608,-0.4521688 0.4521688,-0.4521688 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.40648;stroke-linecap:round;stroke-linejoin:round"
-         id="path76" />
-      <path
-         d="m 5.1206177,4.5966186 h 2.183846 c 0.046776,0 0.092492,0.00707 0.1348755,0.020154 0.1842607,0.0571 0.3172933,0.2285585 0.3172933,0.432015 v 1.5322062 c 0,0.250408 -0.2017608,0.4521688 -0.4521688,0.4521688 h -2.183846 c -0.1589762,0 -0.2983596,-0.081176 -0.3787883,-0.2046387 -0.04634,-0.070991 -0.072864,-0.156072 -0.072864,-0.2475303 V 5.0487874 c 0,-0.012968 4.92e-4,-0.026072 0.00155,-0.038757 0.00213,-0.025192 0.00635,-0.050072 0.012402,-0.073897 0.00611,-0.023984 0.014018,-0.046989 0.023771,-0.069246 0.00487,-0.011131 0.010304,-0.022436 0.01602,-0.033073 0.011449,-0.021267 0.024687,-0.04143 0.039274,-0.060461 0.020594,-0.026916 0.044235,-0.051234 0.07028,-0.072864 0.052024,-0.043125 0.1143938,-0.075158 0.1824178,-0.091467 0.016884,-0.00403 0.034617,-0.00722 0.052193,-0.0093 0.017584,-0.00206 0.035584,-0.0031 0.053744,-0.0031 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.704891;stroke-linecap:round;stroke-linejoin:round"
-         id="path79" />
-      <path
-         d="m 8.829952,6.1288249 h 1.869653 c 0.250408,0 0.452169,0.2017607 0.452169,0.4521687 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 8.829952 c -0.037751,0 -0.075076,-0.00479 -0.1100708,-0.013436 -0.052566,-0.01305 -0.101824,-0.035512 -0.1452108,-0.065112 -0.028883,-0.019747 -0.055568,-0.042959 -0.079065,-0.06873 -0.011779,-0.012941 -0.022848,-0.026567 -0.033073,-0.040824 -0.026659,-0.037095 -0.047512,-0.078588 -0.062012,-0.1229899 -0.00723,-0.0222 -0.012774,-0.045145 -0.016536,-0.06873 -0.00377,-0.023589 -0.00568,-0.047663 -0.00568,-0.072347 0,-0.250408 0.201244,-0.4521687 0.451652,-0.4521687 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.406956;stroke-linecap:round;stroke-linejoin:round"
-         id="path75" />
-      <path
-         d="m 5.1206177,7.6610311 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.2504079 -0.201761,0.4521687 -0.452169,0.4521687 H 5.1206177 c -0.018856,0 -0.038094,-0.00139 -0.056327,-0.00362 -0.1287643,-0.015842 -0.2401033,-0.085122 -0.3116089,-0.1855184 -0.039585,-0.055475 -0.06684,-0.1202909 -0.078031,-0.190686 0,0 0,-5.168e-4 0,-5.168e-4 -0.00372,-0.023464 -0.00568,-0.047287 -0.00568,-0.07183 0,-0.022356 0.00155,-0.044157 0.00465,-0.065629 0.00621,-0.042953 0.018321,-0.08386 0.035657,-0.1219564 0.024223,-0.053341 0.058858,-0.1013351 0.100769,-0.1410767 0.040353,-0.038197 0.088162,-0.069177 0.1405599,-0.090434 0.052401,-0.021192 0.1098196,-0.033073 0.1700155,-0.033073 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
-         id="path74" />
-      <path
-         d="m 5.1205866,9.1932238 h 5.5789874 c 0.250408,0 0.452169,0.201761 0.452169,0.452169 0,0.250408 -0.201761,0.4521692 -0.452169,0.4521692 H 5.1205866 c -0.018856,0 -0.038094,-0.0014 -0.056327,-0.0036 -0.1287643,-0.01584 -0.2401033,-0.08512 -0.3116089,-0.1855192 -0.039585,-0.05547 -0.06684,-0.120291 -0.078031,-0.190686 0,0 0,-5.17e-4 0,-5.17e-4 -0.00372,-0.02346 -0.00568,-0.04729 -0.00568,-0.07183 0,-0.02236 0.00155,-0.04416 0.00465,-0.06563 0.00621,-0.04295 0.018321,-0.08386 0.035657,-0.121956 0.024223,-0.05334 0.058858,-0.101335 0.100769,-0.141077 0.040353,-0.0382 0.088162,-0.06918 0.1405599,-0.09043 0.052401,-0.02119 0.1098196,-0.03307 0.1700155,-0.03307 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
-         id="path74-6" />
-      <path
-         d="M 1.2789917,4.3077462 H 0.35863446 V 9.6149158 H 1.2789917 Z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.568019;stroke-linecap:round;stroke-linejoin:round"
-         id="path64" />
-      <path
-         d="M 1.2789917,3.3873901 V 4.3072306 H 2.8060303 V 3.3873901 Z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304707;stroke-linecap:round;stroke-linejoin:round"
-         id="path65" />
-      <path
-         d="m 11.779126,0.9038208 v 0.017053 H 11.779643 12.7 A 0.92067325,0.92043066 0.015077 0 0 12.509831,0.3601847 0.92067325,0.92043066 0.015077 0 0 12.430766,0.269751 0.92067325,0.92043066 0.015077 0 0 12.24008,0.1235067 0.92067325,0.92043066 0.015077 0 0 12.017871,0.0315226 0.92067325,0.92043066 0.015077 0 0 11.779643,0 Z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
-         id="path69" />
-      <path
-         d="M 4.041097,5.167e-4 A 0.92043066,0.92067325 0.015077 0 0 3.4804077,0.190686 0.92043066,0.92067325 0.015077 0 0 3.389974,0.269751 0.92043066,0.92067325 0.015077 0 0 3.2437297,0.460437 0.92043066,0.92067325 0.015077 0 0 3.1517456,0.6826457 0.92043066,0.92067325 0.015077 0 0 3.120223,0.920874 h 0.9203572 z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
-         id="path68" />
-      <path
-         d="M 1.2789917,3.3873901 A 0.92043066,0.92067325 0.015077 0 0 1.1585856,3.3951401 0.92043066,0.92067325 0.015077 0 0 0.7183024,3.5775579 0.92043066,0.92067325 0.015077 0 0 0.6283854,3.6566229 0.92043066,0.92067325 0.015077 0 0 0.5488037,3.7470569 0.92043066,0.92067325 0.015077 0 0 0.38964029,4.0695178 0.92043066,0.92067325 0.015077 0 0 0.35811769,4.3077462 H 0.35863445 1.2789917 V 4.3072294 Z"
-         style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
-         id="path66" />
-      <path
-         d="m 0.3607015,9.614917 a 1.8400435,1.8400435 0 0 0 1.839681,1.840198 1.8400435,1.8400435 0 0 0 1.8401977,-1.840198 H 3.1207397 A 0.92002177,0.92002177 0 0 1 2.2003825,10.534757 0.92002177,0.92002177 0 0 1 1.280542,9.614917 Z"
-         style="fill: var(--fill-color, #fff);stroke-width:0.524312;stroke-linecap:round;stroke-linejoin:round"
-         id="path82" />
-      <path
-         d="m 11.78016,9.614917 a 0.92002177,0.92002177 0 0 1 -0.920358,0.91984 v 0.920358 A 1.8400435,1.8400435 0 0 0 12.7,9.614917 Z"
-         style="fill: var(--fill-color, #fff);stroke-width:0.524312;stroke-linecap:round;stroke-linejoin:round"
-         id="path81" />
-    </g>
-  </g>
-</svg>
-          </div>
-          <div class="navigation__text">新闻</div>
-        </div>
-      </button>
-      <button class="navigation" id="navigation-search">
-        <div class="navigation__view">
-          <div class="navigation__icon">
-<svg
-   width="48"
-   height="48"
-   viewBox="0 0 12.7 12.7"
-   version="1.1"
-   id="svg1"
-   sodipodi:docname="search.svg"
-   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     id="g3"
-     transform="translate(-0.43554725,-0.43580634)">
-    <rect
-       style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.240751"
-       id="rect2-5"
-       width="4.5372653"
-       height="1.5515167"
-       x="13.10092"
-       y="-0.77575833"
-       ry="0.77575833"
-       transform="rotate(45)" />
-    <path
-       d="M 6.350259,1.1890751 A 5.1610575,5.1610575 0 0 0 1.188816,6.3500004 5.1610575,5.1610575 0 0 0 6.350259,11.510925 5.1610575,5.1610575 0 0 0 11.511184,6.3500004 5.1610575,5.1610575 0 0 0 6.350259,1.1890751 Z m 0,1.5513266 A 3.6095409,3.6095409 0 0 1 9.9598574,6.3500004 3.6095409,3.6095409 0 0 1 6.350259,9.9595989 3.6095409,3.6095409 0 0 1 2.74066,6.3500004 3.6095409,3.6095409 0 0 1 6.350259,2.7404017 Z"
-       style="fill: var(--fill-color, #fff);stroke-width:0.704964;stroke-linecap:round;stroke-linejoin:round"
-       id="path3" />
-  </g>
-</svg>
-          </div>
-          <div class="navigation__text">搜索</div>
-        </div>
-      </button>
+      <div class="window-main-view">
+         <div class="track-group" id="news-track-group">
+            <div class="carousel-track" id="news-carousel-track" animation="display">
+               <div class="information-page">
 
-      <div class="navigation-container__split-line"></div>
+               </div>
+            </div>
+         </div>
+         <div class="track-group" id="search-track-group">
 
-      <button class="navigation" id="navigation-star">
-        <div class="navigation__view">
-          <div class="navigation__icon">
-<svg
-   width="48"
-   height="48"
-   viewBox="0 0 12.7 12.7"
-   version="1.1"
-   id="svg1"
-   sodipodi:docname="star.svg"
-   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <path
-     sodipodi:type="star"
-     style="fill:none;fill-opacity:1;stroke:var(--fill-color, #fff);stroke-width:1.39277;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-     id="path1"
-     inkscape:flatsided="false"
-     sodipodi:sides="5"
-     sodipodi:cx="3.9511111"
-     sodipodi:cy="3.777436"
-     sodipodi:r1="5.2041478"
-     sodipodi:r2="2.4563577"
-     sodipodi:arg1="0.94259105"
-     sodipodi:arg2="1.5709095"
-     inkscape:rounded="0.05"
-     inkscape:randomized="0"
-     d="M 7.0095556,7.9880264 C 6.8669116,8.0916387 4.1271362,6.2338137 3.9508331,6.2337937 3.77453,6.2337738 1.0343334,8.0909781 0.89171293,7.9873336 0.74909244,7.8836891 1.6693518,4.7039083 1.6148902,4.5362279 1.5604285,4.3685475 -1.0526451,2.3363734 -0.99814545,2.1687054 -0.94364581,2.0010373 2.3648812,1.8936497 2.5075251,1.7900375 c 0.142644,-0.1036122 1.2678722,-3.2167692 1.4441754,-3.2167493 0.1763031,2e-5 1.3008258,3.1134316 1.4434463,3.2170761 0.1426205,0.1036445 3.4511234,0.2117817 3.5055851,0.3794622 0.054462,0.1676803 -2.5590721,2.1992621 -2.6135717,2.3669302 -0.0545,0.1676681 0.8650393,3.3476575 0.7223954,3.4512697 z"
-     inkscape:transform-center-x="0.036317085"
-     inkscape:transform-center-y="-0.48610355"
-     transform="translate(2.3987151,3.049013)" />
-</svg>
-          </div>
-          <div class="navigation__text">收藏</div>
-        </div>
-      </button>
-      <button class="navigation" id="navigation-setting">
-        <div class="navigation__view">
-          <div class="navigation__icon">
-<svg
-   width="48"
-   height="48"
-   viewBox="0 0 12.7 12.7"
-   version="1.1"
-   id="svg1"
-   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
-   sodipodi:docname="setting.svg"
-   inkscape:export-filename="setting.svg"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     inkscape:label="图层 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <path
-       d="M 6.35,0.44596761 C 4.9962186,0.44601671 3.6424274,0.58121889 3.175,0.85111084 2.2401452,1.3908947 -3.9149054e-5,5.2705 0,6.35 c 3.9149054e-5,1.0795 2.240106,4.95969 3.175,5.499406 0.934894,0.539716 5.4151452,0.539267 6.35,-5.17e-4 C 10.459855,11.309105 12.700039,7.4295 12.7,6.35 12.699961,5.2705 10.459894,1.3903102 9.525,0.85059408 9.057553,0.58073603 7.7037814,0.44591851 6.35,0.44596761 Z m 0,1.27589109 c 1.0612205,-3.85e-5 2.1223083,0.1057533 2.488737,0.3172933 0.7328573,0.42308 2.488706,3.4646349 2.488737,4.310848 3.1e-5,0.8462131 -1.7553936,3.887715 -2.4882203,4.310848 -0.7328266,0.423133 -4.2451333,0.42308 -4.9779907,0 C 3.1284057,10.237768 1.3725567,7.1962131 1.372526,6.35 1.3724954,5.5037869 3.1279196,2.4622851 3.8607463,2.039152 4.2271596,1.8275855 5.2887795,1.7218972 6.35,1.7218587 Z"
-       style="fill: var(--fill-color, #fff);stroke-width:1.89893;stroke-linejoin:round"
-       id="path4" />
-    <path
-       d="M 6.35,3.6499064 A 2.7,2.7 0 0 0 3.6499064,6.35 2.7,2.7 0 0 0 6.35,9.0500936 2.7,2.7 0 0 0 9.0500936,6.35 2.7,2.7 0 0 0 6.35,3.6499064 Z m 0,1.1999268 A 1.5,1.5 0 0 1 7.8501668,6.35 1.5,1.5 0 0 1 6.35,7.8501668 1.5,1.5 0 0 1 4.8498332,6.35 1.5,1.5 0 0 1 6.35,4.8498332 Z"
-       style="fill: var(--fill-color, #fff);stroke-width:1.6;stroke-linejoin:round"
-       id="path5" />
-  </g>
-</svg>
-          </div>
-          <div class="navigation__text">设置</div>
-        </div>
-      </button>
-    </div>
+         </div>
+         <div class="track-group" id="star-track-group">
+
+         </div>
+         <div class="track-group" id="setting-track-group">
+            <div class="carousel-track" animation="display">
+               <div class="setting-page">
+                  <div class="setting-section card">
+                     <div class="setting-section__title">显示</div>
+                     <button class="setting-section__item">
+                        <div class="item__title">主题色</div>
+                        <div class="item__typetip"></div>
+                     </button>
+                     <button class="setting-section__item">安全区</button>
+                     <button class="setting-section__item">详细设置</button>
+                  </div>
+
+                  <div class="setting-section card">
+                     <div class="setting-section__title">存储</div>
+                     <button class="setting-section__item">启用缓存</button>
+                     <button class="setting-section__item">详细设置</button>
+                  </div>
+
+                  <div class="setting-section card">
+                     <div class="setting-section__title">新闻页</div>
+                     <button class="setting-section__item">高亮关键词</button>
+                     <button class="setting-section__item">替换关键词</button>
+                     <button class="setting-section__item">详细设置</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="navigation-container">
+         <button class="navigation" id="navigation-back">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     sodipodi:docname="back.svg" inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g id="g1" transform="translate(-0.49712765,0.13038437)">
+                        <rect style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304802" id="rect2"
+                           width="7.2726498" height="1.5515167" x="6.7879272" y="0.45642081" ry="0.77575833"
+                           transform="rotate(45)" />
+                        <rect style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304802" id="rect2-5"
+                           width="7.2726498" height="1.5515167" x="-5.2647123" y="-8.3394442" ry="0.77575833"
+                           transform="rotate(135)" />
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">返回</div>
+            </div>
+         </button>
+         <button class="navigation" id="navigation-news">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     inkscape:version="1.4.3 (0d15f75042, 2025-12-25)" sodipodi:docname="news.svg"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g inkscape:label="图层 1" inkscape:groupmode="layer" id="layer1">
+                        <g id="g82" transform="translate(-0.17905935,0.6224425)">
+                           <path d="M 4.0405802,0.920874 H 3.120223 v 8.6940428 h 0.9203572 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.72701;stroke-linecap:round;stroke-linejoin:round"
+                              id="path62" />
+                           <path d="m 12.700001,0.9208738 h -0.920358 v 8.694043 h 0.920358 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.72701;stroke-linecap:round;stroke-linejoin:round"
+                              id="path62-3" />
+                           <path d="m 4.041097,0 v 5.167e-4 0.9033041 h 7.738029 V 0 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.679767;stroke-linecap:round;stroke-linejoin:round"
+                              id="path67" />
+                           <path d="m 2.2016655,10.534939 v 5.25e-4 0.919496 h 8.6569225 v -0.920021 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.725412;stroke-linecap:round;stroke-linejoin:round"
+                              id="path67-3" />
+                           <path
+                              d="m 5.1206177,1.5322062 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.1506473 -0.07281,0.2834071 -0.185518,0.3653524 -0.02132,0.015536 -0.04427,0.029163 -0.06821,0.040824 -0.01197,0.00582 -0.02415,0.011254 -0.03669,0.01602 -0.05016,0.019109 -0.104716,0.029456 -0.161748,0.029456 H 5.1206177 c -0.015477,0 -0.031443,-5.654e-4 -0.046509,-0.00207 -0.00227,-2.291e-4 -0.00446,-7.711e-4 -0.00672,-0.00103 -0.024067,-0.00282 -0.047542,-0.00753 -0.07028,-0.013953 -0.00361,-0.00101 -0.0078,-0.002 -0.011369,-0.0031 C 4.8441016,2.3720482 4.7329444,2.2603743 4.6891195,2.1187337 c -8.808e-4,-0.00286 -0.00124,-0.0059 -0.00207,-0.00879 -0.00683,-0.023724 -0.012094,-0.048201 -0.014986,-0.07338 -2.187e-4,-0.00192 -8.388e-4,-0.00427 -0.00103,-0.0062 -0.0015,-0.015065 -0.00207,-0.030515 -0.00207,-0.045992 0,-0.015214 6.154e-4,-0.030138 0.00207,-0.044958 0.00291,-0.029636 0.00874,-0.058653 0.017053,-0.0863 0.00415,-0.013827 0.00907,-0.02708 0.014469,-0.040308 0.010808,-0.026446 0.023884,-0.051813 0.039274,-0.075448 0.047883,-0.073651 0.1170259,-0.132528 0.1984375,-0.1679484 0.055159,-0.023929 0.1161723,-0.037207 0.1803508,-0.037207 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path78" />
+                           <path
+                              d="m 5.1206177,3.0644124 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 5.1206177 c -0.2106486,0 -0.3866484,-0.1430411 -0.4371826,-0.3374471 -0.00946,-0.036549 -0.014469,-0.075137 -0.014469,-0.1147217 0,-0.028001 0.00241,-0.055599 0.00723,-0.082165 0.00241,-0.013285 0.00525,-0.026427 0.00879,-0.039274 0.026471,-0.095787 0.084179,-0.1789232 0.1607137,-0.2377116 0.025264,-0.019368 0.053055,-0.036394 0.082166,-0.050126 0.029115,-0.013696 0.060337,-0.024258 0.092501,-0.031523 0.032173,-0.00723 0.065826,-0.011369 0.1002523,-0.011369 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path77" />
+                           <path
+                              d="m 8.8366699,4.5966186 h 1.8629351 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 8.8366699 c -0.250408,0 -0.4521688,-0.2017608 -0.4521688,-0.4521688 0,-0.250408 0.2017608,-0.4521688 0.4521688,-0.4521688 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.40648;stroke-linecap:round;stroke-linejoin:round"
+                              id="path76" />
+                           <path
+                              d="m 5.1206177,4.5966186 h 2.183846 c 0.046776,0 0.092492,0.00707 0.1348755,0.020154 0.1842607,0.0571 0.3172933,0.2285585 0.3172933,0.432015 v 1.5322062 c 0,0.250408 -0.2017608,0.4521688 -0.4521688,0.4521688 h -2.183846 c -0.1589762,0 -0.2983596,-0.081176 -0.3787883,-0.2046387 -0.04634,-0.070991 -0.072864,-0.156072 -0.072864,-0.2475303 V 5.0487874 c 0,-0.012968 4.92e-4,-0.026072 0.00155,-0.038757 0.00213,-0.025192 0.00635,-0.050072 0.012402,-0.073897 0.00611,-0.023984 0.014018,-0.046989 0.023771,-0.069246 0.00487,-0.011131 0.010304,-0.022436 0.01602,-0.033073 0.011449,-0.021267 0.024687,-0.04143 0.039274,-0.060461 0.020594,-0.026916 0.044235,-0.051234 0.07028,-0.072864 0.052024,-0.043125 0.1143938,-0.075158 0.1824178,-0.091467 0.016884,-0.00403 0.034617,-0.00722 0.052193,-0.0093 0.017584,-0.00206 0.035584,-0.0031 0.053744,-0.0031 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.704891;stroke-linecap:round;stroke-linejoin:round"
+                              id="path79" />
+                           <path
+                              d="m 8.829952,6.1288249 h 1.869653 c 0.250408,0 0.452169,0.2017607 0.452169,0.4521687 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 8.829952 c -0.037751,0 -0.075076,-0.00479 -0.1100708,-0.013436 -0.052566,-0.01305 -0.101824,-0.035512 -0.1452108,-0.065112 -0.028883,-0.019747 -0.055568,-0.042959 -0.079065,-0.06873 -0.011779,-0.012941 -0.022848,-0.026567 -0.033073,-0.040824 -0.026659,-0.037095 -0.047512,-0.078588 -0.062012,-0.1229899 -0.00723,-0.0222 -0.012774,-0.045145 -0.016536,-0.06873 -0.00377,-0.023589 -0.00568,-0.047663 -0.00568,-0.072347 0,-0.250408 0.201244,-0.4521687 0.451652,-0.4521687 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.406956;stroke-linecap:round;stroke-linejoin:round"
+                              id="path75" />
+                           <path
+                              d="m 5.1206177,7.6610311 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.2504079 -0.201761,0.4521687 -0.452169,0.4521687 H 5.1206177 c -0.018856,0 -0.038094,-0.00139 -0.056327,-0.00362 -0.1287643,-0.015842 -0.2401033,-0.085122 -0.3116089,-0.1855184 -0.039585,-0.055475 -0.06684,-0.1202909 -0.078031,-0.190686 0,0 0,-5.168e-4 0,-5.168e-4 -0.00372,-0.023464 -0.00568,-0.047287 -0.00568,-0.07183 0,-0.022356 0.00155,-0.044157 0.00465,-0.065629 0.00621,-0.042953 0.018321,-0.08386 0.035657,-0.1219564 0.024223,-0.053341 0.058858,-0.1013351 0.100769,-0.1410767 0.040353,-0.038197 0.088162,-0.069177 0.1405599,-0.090434 0.052401,-0.021192 0.1098196,-0.033073 0.1700155,-0.033073 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path74" />
+                           <path
+                              d="m 5.1205866,9.1932238 h 5.5789874 c 0.250408,0 0.452169,0.201761 0.452169,0.452169 0,0.250408 -0.201761,0.4521692 -0.452169,0.4521692 H 5.1205866 c -0.018856,0 -0.038094,-0.0014 -0.056327,-0.0036 -0.1287643,-0.01584 -0.2401033,-0.08512 -0.3116089,-0.1855192 -0.039585,-0.05547 -0.06684,-0.120291 -0.078031,-0.190686 0,0 0,-5.17e-4 0,-5.17e-4 -0.00372,-0.02346 -0.00568,-0.04729 -0.00568,-0.07183 0,-0.02236 0.00155,-0.04416 0.00465,-0.06563 0.00621,-0.04295 0.018321,-0.08386 0.035657,-0.121956 0.024223,-0.05334 0.058858,-0.101335 0.100769,-0.141077 0.040353,-0.0382 0.088162,-0.06918 0.1405599,-0.09043 0.052401,-0.02119 0.1098196,-0.03307 0.1700155,-0.03307 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path74-6" />
+                           <path d="M 1.2789917,4.3077462 H 0.35863446 V 9.6149158 H 1.2789917 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.568019;stroke-linecap:round;stroke-linejoin:round"
+                              id="path64" />
+                           <path d="M 1.2789917,3.3873901 V 4.3072306 H 2.8060303 V 3.3873901 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304707;stroke-linecap:round;stroke-linejoin:round"
+                              id="path65" />
+                           <path
+                              d="m 11.779126,0.9038208 v 0.017053 H 11.779643 12.7 A 0.92067325,0.92043066 0.015077 0 0 12.509831,0.3601847 0.92067325,0.92043066 0.015077 0 0 12.430766,0.269751 0.92067325,0.92043066 0.015077 0 0 12.24008,0.1235067 0.92067325,0.92043066 0.015077 0 0 12.017871,0.0315226 0.92067325,0.92043066 0.015077 0 0 11.779643,0 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path69" />
+                           <path
+                              d="M 4.041097,5.167e-4 A 0.92043066,0.92067325 0.015077 0 0 3.4804077,0.190686 0.92043066,0.92067325 0.015077 0 0 3.389974,0.269751 0.92043066,0.92067325 0.015077 0 0 3.2437297,0.460437 0.92043066,0.92067325 0.015077 0 0 3.1517456,0.6826457 0.92043066,0.92067325 0.015077 0 0 3.120223,0.920874 h 0.9203572 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path68" />
+                           <path
+                              d="M 1.2789917,3.3873901 A 0.92043066,0.92067325 0.015077 0 0 1.1585856,3.3951401 0.92043066,0.92067325 0.015077 0 0 0.7183024,3.5775579 0.92043066,0.92067325 0.015077 0 0 0.6283854,3.6566229 0.92043066,0.92067325 0.015077 0 0 0.5488037,3.7470569 0.92043066,0.92067325 0.015077 0 0 0.38964029,4.0695178 0.92043066,0.92067325 0.015077 0 0 0.35811769,4.3077462 H 0.35863445 1.2789917 V 4.3072294 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path66" />
+                           <path
+                              d="m 0.3607015,9.614917 a 1.8400435,1.8400435 0 0 0 1.839681,1.840198 1.8400435,1.8400435 0 0 0 1.8401977,-1.840198 H 3.1207397 A 0.92002177,0.92002177 0 0 1 2.2003825,10.534757 0.92002177,0.92002177 0 0 1 1.280542,9.614917 Z"
+                              style="fill: var(--fill-color, #fff);stroke-width:0.524312;stroke-linecap:round;stroke-linejoin:round"
+                              id="path82" />
+                           <path
+                              d="m 11.78016,9.614917 a 0.92002177,0.92002177 0 0 1 -0.920358,0.91984 v 0.920358 A 1.8400435,1.8400435 0 0 0 12.7,9.614917 Z"
+                              style="fill: var(--fill-color, #fff);stroke-width:0.524312;stroke-linecap:round;stroke-linejoin:round"
+                              id="path81" />
+                        </g>
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">新闻</div>
+            </div>
+         </button>
+         <button class="navigation" id="navigation-search">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     sodipodi:docname="search.svg" inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g id="g3" transform="translate(-0.43554725,-0.43580634)">
+                        <rect style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.240751" id="rect2-5"
+                           width="4.5372653" height="1.5515167" x="13.10092" y="-0.77575833" ry="0.77575833"
+                           transform="rotate(45)" />
+                        <path
+                           d="M 6.350259,1.1890751 A 5.1610575,5.1610575 0 0 0 1.188816,6.3500004 5.1610575,5.1610575 0 0 0 6.350259,11.510925 5.1610575,5.1610575 0 0 0 11.511184,6.3500004 5.1610575,5.1610575 0 0 0 6.350259,1.1890751 Z m 0,1.5513266 A 3.6095409,3.6095409 0 0 1 9.9598574,6.3500004 3.6095409,3.6095409 0 0 1 6.350259,9.9595989 3.6095409,3.6095409 0 0 1 2.74066,6.3500004 3.6095409,3.6095409 0 0 1 6.350259,2.7404017 Z"
+                           style="fill: var(--fill-color, #fff);stroke-width:0.704964;stroke-linecap:round;stroke-linejoin:round"
+                           id="path3" />
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">搜索</div>
+            </div>
+         </button>
+
+         <div class="navigation-container__split-line"></div>
+
+         <button class="navigation" id="navigation-star">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     sodipodi:docname="star.svg" inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <path sodipodi:type="star"
+                        style="fill:none;fill-opacity:1;stroke:var(--fill-color, #fff);stroke-width:1.39277;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="path1" inkscape:flatsided="false" sodipodi:sides="5" sodipodi:cx="3.9511111"
+                        sodipodi:cy="3.777436" sodipodi:r1="5.2041478" sodipodi:r2="2.4563577"
+                        sodipodi:arg1="0.94259105" sodipodi:arg2="1.5709095" inkscape:rounded="0.05"
+                        inkscape:randomized="0"
+                        d="M 7.0095556,7.9880264 C 6.8669116,8.0916387 4.1271362,6.2338137 3.9508331,6.2337937 3.77453,6.2337738 1.0343334,8.0909781 0.89171293,7.9873336 0.74909244,7.8836891 1.6693518,4.7039083 1.6148902,4.5362279 1.5604285,4.3685475 -1.0526451,2.3363734 -0.99814545,2.1687054 -0.94364581,2.0010373 2.3648812,1.8936497 2.5075251,1.7900375 c 0.142644,-0.1036122 1.2678722,-3.2167692 1.4441754,-3.2167493 0.1763031,2e-5 1.3008258,3.1134316 1.4434463,3.2170761 0.1426205,0.1036445 3.4511234,0.2117817 3.5055851,0.3794622 0.054462,0.1676803 -2.5590721,2.1992621 -2.6135717,2.3669302 -0.0545,0.1676681 0.8650393,3.3476575 0.7223954,3.4512697 z"
+                        inkscape:transform-center-x="0.036317085" inkscape:transform-center-y="-0.48610355"
+                        transform="translate(2.3987151,3.049013)" />
+                  </svg>
+               </div>
+               <div class="navigation__text">收藏</div>
+            </div>
+         </button>
+         <button class="navigation" id="navigation-setting">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     inkscape:version="1.4.3 (0d15f75042, 2025-12-25)" sodipodi:docname="setting.svg"
+                     inkscape:export-filename="setting.svg" inkscape:export-xdpi="96" inkscape:export-ydpi="96"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g inkscape:label="图层 1" inkscape:groupmode="layer" id="layer1">
+                        <path
+                           d="M 6.35,0.44596761 C 4.9962186,0.44601671 3.6424274,0.58121889 3.175,0.85111084 2.2401452,1.3908947 -3.9149054e-5,5.2705 0,6.35 c 3.9149054e-5,1.0795 2.240106,4.95969 3.175,5.499406 0.934894,0.539716 5.4151452,0.539267 6.35,-5.17e-4 C 10.459855,11.309105 12.700039,7.4295 12.7,6.35 12.699961,5.2705 10.459894,1.3903102 9.525,0.85059408 9.057553,0.58073603 7.7037814,0.44591851 6.35,0.44596761 Z m 0,1.27589109 c 1.0612205,-3.85e-5 2.1223083,0.1057533 2.488737,0.3172933 0.7328573,0.42308 2.488706,3.4646349 2.488737,4.310848 3.1e-5,0.8462131 -1.7553936,3.887715 -2.4882203,4.310848 -0.7328266,0.423133 -4.2451333,0.42308 -4.9779907,0 C 3.1284057,10.237768 1.3725567,7.1962131 1.372526,6.35 1.3724954,5.5037869 3.1279196,2.4622851 3.8607463,2.039152 4.2271596,1.8275855 5.2887795,1.7218972 6.35,1.7218587 Z"
+                           style="fill: var(--fill-color, #fff);stroke-width:1.89893;stroke-linejoin:round"
+                           id="path4" />
+                        <path
+                           d="M 6.35,3.6499064 A 2.7,2.7 0 0 0 3.6499064,6.35 2.7,2.7 0 0 0 6.35,9.0500936 2.7,2.7 0 0 0 9.0500936,6.35 2.7,2.7 0 0 0 6.35,3.6499064 Z m 0,1.1999268 A 1.5,1.5 0 0 1 7.8501668,6.35 1.5,1.5 0 0 1 6.35,7.8501668 1.5,1.5 0 0 1 4.8498332,6.35 1.5,1.5 0 0 1 6.35,4.8498332 Z"
+                           style="fill: var(--fill-color, #fff);stroke-width:1.6;stroke-linejoin:round" id="path5" />
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">设置</div>
+            </div>
+         </button>
+      </div>
 
 
-    <div class="footbar-desktop">
-      <button class="footbutton" id="refresh">
-        <div class="footbutton__icon"></div>
-        <div class="text">刷新 上次同步12分钟前</div>
-      </button>
+      <div class="footbar-desktop">
+         <button class="footbutton" id="refresh">
+            <div class="footbutton__icon"></div>
+            <div class="text">刷新 上次同步12分钟前</div>
+         </button>
 
-      <div class="footbar-desktop__split-line"></div>
+         <div class="footbar-desktop__split-line"></div>
 
-      <button class="footbutton" id="campus-net">
-        <div class="footbutton__icon">d</div>
-      </button>
-      <button class="footbutton" id="notice">
-        <div class="footbutton__icon">e</div>
-      </button>
-    </div>
+         <button class="footbutton" id="campus-net">
+            <div class="footbutton__icon">d</div>
+         </button>
+         <button class="footbutton" id="notice">
+            <div class="footbutton__icon">e</div>
+         </button>
+      </div>
 
+      <div class="m-footbar">
+         <button class="navigation" id="navigation-news">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     inkscape:version="1.4.3 (0d15f75042, 2025-12-25)" sodipodi:docname="news.svg"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g inkscape:label="图层 1" inkscape:groupmode="layer" id="layer1">
+                        <g id="g82" transform="translate(-0.17905935,0.6224425)">
+                           <path d="M 4.0405802,0.920874 H 3.120223 v 8.6940428 h 0.9203572 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.72701;stroke-linecap:round;stroke-linejoin:round"
+                              id="path62" />
+                           <path d="m 12.700001,0.9208738 h -0.920358 v 8.694043 h 0.920358 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.72701;stroke-linecap:round;stroke-linejoin:round"
+                              id="path62-3" />
+                           <path d="m 4.041097,0 v 5.167e-4 0.9033041 h 7.738029 V 0 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.679767;stroke-linecap:round;stroke-linejoin:round"
+                              id="path67" />
+                           <path d="m 2.2016655,10.534939 v 5.25e-4 0.919496 h 8.6569225 v -0.920021 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.725412;stroke-linecap:round;stroke-linejoin:round"
+                              id="path67-3" />
+                           <path
+                              d="m 5.1206177,1.5322062 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.1506473 -0.07281,0.2834071 -0.185518,0.3653524 -0.02132,0.015536 -0.04427,0.029163 -0.06821,0.040824 -0.01197,0.00582 -0.02415,0.011254 -0.03669,0.01602 -0.05016,0.019109 -0.104716,0.029456 -0.161748,0.029456 H 5.1206177 c -0.015477,0 -0.031443,-5.654e-4 -0.046509,-0.00207 -0.00227,-2.291e-4 -0.00446,-7.711e-4 -0.00672,-0.00103 -0.024067,-0.00282 -0.047542,-0.00753 -0.07028,-0.013953 -0.00361,-0.00101 -0.0078,-0.002 -0.011369,-0.0031 C 4.8441016,2.3720482 4.7329444,2.2603743 4.6891195,2.1187337 c -8.808e-4,-0.00286 -0.00124,-0.0059 -0.00207,-0.00879 -0.00683,-0.023724 -0.012094,-0.048201 -0.014986,-0.07338 -2.187e-4,-0.00192 -8.388e-4,-0.00427 -0.00103,-0.0062 -0.0015,-0.015065 -0.00207,-0.030515 -0.00207,-0.045992 0,-0.015214 6.154e-4,-0.030138 0.00207,-0.044958 0.00291,-0.029636 0.00874,-0.058653 0.017053,-0.0863 0.00415,-0.013827 0.00907,-0.02708 0.014469,-0.040308 0.010808,-0.026446 0.023884,-0.051813 0.039274,-0.075448 0.047883,-0.073651 0.1170259,-0.132528 0.1984375,-0.1679484 0.055159,-0.023929 0.1161723,-0.037207 0.1803508,-0.037207 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path78" />
+                           <path
+                              d="m 5.1206177,3.0644124 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 5.1206177 c -0.2106486,0 -0.3866484,-0.1430411 -0.4371826,-0.3374471 -0.00946,-0.036549 -0.014469,-0.075137 -0.014469,-0.1147217 0,-0.028001 0.00241,-0.055599 0.00723,-0.082165 0.00241,-0.013285 0.00525,-0.026427 0.00879,-0.039274 0.026471,-0.095787 0.084179,-0.1789232 0.1607137,-0.2377116 0.025264,-0.019368 0.053055,-0.036394 0.082166,-0.050126 0.029115,-0.013696 0.060337,-0.024258 0.092501,-0.031523 0.032173,-0.00723 0.065826,-0.011369 0.1002523,-0.011369 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path77" />
+                           <path
+                              d="m 8.8366699,4.5966186 h 1.8629351 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 8.8366699 c -0.250408,0 -0.4521688,-0.2017608 -0.4521688,-0.4521688 0,-0.250408 0.2017608,-0.4521688 0.4521688,-0.4521688 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.40648;stroke-linecap:round;stroke-linejoin:round"
+                              id="path76" />
+                           <path
+                              d="m 5.1206177,4.5966186 h 2.183846 c 0.046776,0 0.092492,0.00707 0.1348755,0.020154 0.1842607,0.0571 0.3172933,0.2285585 0.3172933,0.432015 v 1.5322062 c 0,0.250408 -0.2017608,0.4521688 -0.4521688,0.4521688 h -2.183846 c -0.1589762,0 -0.2983596,-0.081176 -0.3787883,-0.2046387 -0.04634,-0.070991 -0.072864,-0.156072 -0.072864,-0.2475303 V 5.0487874 c 0,-0.012968 4.92e-4,-0.026072 0.00155,-0.038757 0.00213,-0.025192 0.00635,-0.050072 0.012402,-0.073897 0.00611,-0.023984 0.014018,-0.046989 0.023771,-0.069246 0.00487,-0.011131 0.010304,-0.022436 0.01602,-0.033073 0.011449,-0.021267 0.024687,-0.04143 0.039274,-0.060461 0.020594,-0.026916 0.044235,-0.051234 0.07028,-0.072864 0.052024,-0.043125 0.1143938,-0.075158 0.1824178,-0.091467 0.016884,-0.00403 0.034617,-0.00722 0.052193,-0.0093 0.017584,-0.00206 0.035584,-0.0031 0.053744,-0.0031 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.704891;stroke-linecap:round;stroke-linejoin:round"
+                              id="path79" />
+                           <path
+                              d="m 8.829952,6.1288249 h 1.869653 c 0.250408,0 0.452169,0.2017607 0.452169,0.4521687 0,0.250408 -0.201761,0.4521688 -0.452169,0.4521688 H 8.829952 c -0.037751,0 -0.075076,-0.00479 -0.1100708,-0.013436 -0.052566,-0.01305 -0.101824,-0.035512 -0.1452108,-0.065112 -0.028883,-0.019747 -0.055568,-0.042959 -0.079065,-0.06873 -0.011779,-0.012941 -0.022848,-0.026567 -0.033073,-0.040824 -0.026659,-0.037095 -0.047512,-0.078588 -0.062012,-0.1229899 -0.00723,-0.0222 -0.012774,-0.045145 -0.016536,-0.06873 -0.00377,-0.023589 -0.00568,-0.047663 -0.00568,-0.072347 0,-0.250408 0.201244,-0.4521687 0.451652,-0.4521687 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.406956;stroke-linecap:round;stroke-linejoin:round"
+                              id="path75" />
+                           <path
+                              d="m 5.1206177,7.6610311 h 5.5789873 c 0.250408,0 0.452169,0.2017608 0.452169,0.4521688 0,0.2504079 -0.201761,0.4521687 -0.452169,0.4521687 H 5.1206177 c -0.018856,0 -0.038094,-0.00139 -0.056327,-0.00362 -0.1287643,-0.015842 -0.2401033,-0.085122 -0.3116089,-0.1855184 -0.039585,-0.055475 -0.06684,-0.1202909 -0.078031,-0.190686 0,0 0,-5.168e-4 0,-5.168e-4 -0.00372,-0.023464 -0.00568,-0.047287 -0.00568,-0.07183 0,-0.022356 0.00155,-0.044157 0.00465,-0.065629 0.00621,-0.042953 0.018321,-0.08386 0.035657,-0.1219564 0.024223,-0.053341 0.058858,-0.1013351 0.100769,-0.1410767 0.040353,-0.038197 0.088162,-0.069177 0.1405599,-0.090434 0.052401,-0.021192 0.1098196,-0.033073 0.1700155,-0.033073 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path74" />
+                           <path
+                              d="m 5.1205866,9.1932238 h 5.5789874 c 0.250408,0 0.452169,0.201761 0.452169,0.452169 0,0.250408 -0.201761,0.4521692 -0.452169,0.4521692 H 5.1205866 c -0.018856,0 -0.038094,-0.0014 -0.056327,-0.0036 -0.1287643,-0.01584 -0.2401033,-0.08512 -0.3116089,-0.1855192 -0.039585,-0.05547 -0.06684,-0.120291 -0.078031,-0.190686 0,0 0,-5.17e-4 0,-5.17e-4 -0.00372,-0.02346 -0.00568,-0.04729 -0.00568,-0.07183 0,-0.02236 0.00155,-0.04416 0.00465,-0.06563 0.00621,-0.04295 0.018321,-0.08386 0.035657,-0.121956 0.024223,-0.05334 0.058858,-0.101335 0.100769,-0.141077 0.040353,-0.0382 0.088162,-0.06918 0.1405599,-0.09043 0.052401,-0.02119 0.1098196,-0.03307 0.1700155,-0.03307 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.622183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path74-6" />
+                           <path d="M 1.2789917,4.3077462 H 0.35863446 V 9.6149158 H 1.2789917 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.568019;stroke-linecap:round;stroke-linejoin:round"
+                              id="path64" />
+                           <path d="M 1.2789917,3.3873901 V 4.3072306 H 2.8060303 V 3.3873901 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.304707;stroke-linecap:round;stroke-linejoin:round"
+                              id="path65" />
+                           <path
+                              d="m 11.779126,0.9038208 v 0.017053 H 11.779643 12.7 A 0.92067325,0.92043066 0.015077 0 0 12.509831,0.3601847 0.92067325,0.92043066 0.015077 0 0 12.430766,0.269751 0.92067325,0.92043066 0.015077 0 0 12.24008,0.1235067 0.92067325,0.92043066 0.015077 0 0 12.017871,0.0315226 0.92067325,0.92043066 0.015077 0 0 11.779643,0 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path69" />
+                           <path
+                              d="M 4.041097,5.167e-4 A 0.92043066,0.92067325 0.015077 0 0 3.4804077,0.190686 0.92043066,0.92067325 0.015077 0 0 3.389974,0.269751 0.92043066,0.92067325 0.015077 0 0 3.2437297,0.460437 0.92043066,0.92067325 0.015077 0 0 3.1517456,0.6826457 0.92043066,0.92067325 0.015077 0 0 3.120223,0.920874 h 0.9203572 z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path68" />
+                           <path
+                              d="M 1.2789917,3.3873901 A 0.92043066,0.92067325 0.015077 0 0 1.1585856,3.3951401 0.92043066,0.92067325 0.015077 0 0 0.7183024,3.5775579 0.92043066,0.92067325 0.015077 0 0 0.6283854,3.6566229 0.92043066,0.92067325 0.015077 0 0 0.5488037,3.7470569 0.92043066,0.92067325 0.015077 0 0 0.38964029,4.0695178 0.92043066,0.92067325 0.015077 0 0 0.35811769,4.3077462 H 0.35863445 1.2789917 V 4.3072294 Z"
+                              style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.302183;stroke-linecap:round;stroke-linejoin:round"
+                              id="path66" />
+                           <path
+                              d="m 0.3607015,9.614917 a 1.8400435,1.8400435 0 0 0 1.839681,1.840198 1.8400435,1.8400435 0 0 0 1.8401977,-1.840198 H 3.1207397 A 0.92002177,0.92002177 0 0 1 2.2003825,10.534757 0.92002177,0.92002177 0 0 1 1.280542,9.614917 Z"
+                              style="fill: var(--fill-color, #fff);stroke-width:0.524312;stroke-linecap:round;stroke-linejoin:round"
+                              id="path82" />
+                           <path
+                              d="m 11.78016,9.614917 a 0.92002177,0.92002177 0 0 1 -0.920358,0.91984 v 0.920358 A 1.8400435,1.8400435 0 0 0 12.7,9.614917 Z"
+                              style="fill: var(--fill-color, #fff);stroke-width:0.524312;stroke-linecap:round;stroke-linejoin:round"
+                              id="path81" />
+                        </g>
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">新闻</div>
+            </div>
+         </button>
+         <button class="navigation" id="navigation-search">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     sodipodi:docname="search.svg" inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g id="g3" transform="translate(-0.43554725,-0.43580634)">
+                        <rect style="fill: var(--fill-color, #fff);fill-opacity:1;stroke-width:0.240751" id="rect2-5"
+                           width="4.5372653" height="1.5515167" x="13.10092" y="-0.77575833" ry="0.77575833"
+                           transform="rotate(45)" />
+                        <path
+                           d="M 6.350259,1.1890751 A 5.1610575,5.1610575 0 0 0 1.188816,6.3500004 5.1610575,5.1610575 0 0 0 6.350259,11.510925 5.1610575,5.1610575 0 0 0 11.511184,6.3500004 5.1610575,5.1610575 0 0 0 6.350259,1.1890751 Z m 0,1.5513266 A 3.6095409,3.6095409 0 0 1 9.9598574,6.3500004 3.6095409,3.6095409 0 0 1 6.350259,9.9595989 3.6095409,3.6095409 0 0 1 2.74066,6.3500004 3.6095409,3.6095409 0 0 1 6.350259,2.7404017 Z"
+                           style="fill: var(--fill-color, #fff);stroke-width:0.704964;stroke-linecap:round;stroke-linejoin:round"
+                           id="path3" />
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">搜索</div>
+            </div>
+         </button>
+         <button class="navigation" id="navigation-star">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     sodipodi:docname="star.svg" inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <path sodipodi:type="star"
+                        style="fill:none;fill-opacity:1;stroke:var(--fill-color, #fff);stroke-width:1.39277;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="path1" inkscape:flatsided="false" sodipodi:sides="5" sodipodi:cx="3.9511111"
+                        sodipodi:cy="3.777436" sodipodi:r1="5.2041478" sodipodi:r2="2.4563577"
+                        sodipodi:arg1="0.94259105" sodipodi:arg2="1.5709095" inkscape:rounded="0.05"
+                        inkscape:randomized="0"
+                        d="M 7.0095556,7.9880264 C 6.8669116,8.0916387 4.1271362,6.2338137 3.9508331,6.2337937 3.77453,6.2337738 1.0343334,8.0909781 0.89171293,7.9873336 0.74909244,7.8836891 1.6693518,4.7039083 1.6148902,4.5362279 1.5604285,4.3685475 -1.0526451,2.3363734 -0.99814545,2.1687054 -0.94364581,2.0010373 2.3648812,1.8936497 2.5075251,1.7900375 c 0.142644,-0.1036122 1.2678722,-3.2167692 1.4441754,-3.2167493 0.1763031,2e-5 1.3008258,3.1134316 1.4434463,3.2170761 0.1426205,0.1036445 3.4511234,0.2117817 3.5055851,0.3794622 0.054462,0.1676803 -2.5590721,2.1992621 -2.6135717,2.3669302 -0.0545,0.1676681 0.8650393,3.3476575 0.7223954,3.4512697 z"
+                        inkscape:transform-center-x="0.036317085" inkscape:transform-center-y="-0.48610355"
+                        transform="translate(2.3987151,3.049013)" />
+                  </svg>
+               </div>
+               <div class="navigation__text">收藏</div>
+            </div>
+         </button>
+         <button class="navigation" id="navigation-setting">
+            <div class="navigation__view">
+               <div class="navigation__icon">
+                  <svg width="48" height="48" viewBox="0 0 12.7 12.7" version="1.1" id="svg1"
+                     inkscape:version="1.4.3 (0d15f75042, 2025-12-25)" sodipodi:docname="setting.svg"
+                     inkscape:export-filename="setting.svg" inkscape:export-xdpi="96" inkscape:export-ydpi="96"
+                     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <defs id="defs1" />
+                     <g inkscape:label="图层 1" inkscape:groupmode="layer" id="layer1">
+                        <path
+                           d="M 6.35,0.44596761 C 4.9962186,0.44601671 3.6424274,0.58121889 3.175,0.85111084 2.2401452,1.3908947 -3.9149054e-5,5.2705 0,6.35 c 3.9149054e-5,1.0795 2.240106,4.95969 3.175,5.499406 0.934894,0.539716 5.4151452,0.539267 6.35,-5.17e-4 C 10.459855,11.309105 12.700039,7.4295 12.7,6.35 12.699961,5.2705 10.459894,1.3903102 9.525,0.85059408 9.057553,0.58073603 7.7037814,0.44591851 6.35,0.44596761 Z m 0,1.27589109 c 1.0612205,-3.85e-5 2.1223083,0.1057533 2.488737,0.3172933 0.7328573,0.42308 2.488706,3.4646349 2.488737,4.310848 3.1e-5,0.8462131 -1.7553936,3.887715 -2.4882203,4.310848 -0.7328266,0.423133 -4.2451333,0.42308 -4.9779907,0 C 3.1284057,10.237768 1.3725567,7.1962131 1.372526,6.35 1.3724954,5.5037869 3.1279196,2.4622851 3.8607463,2.039152 4.2271596,1.8275855 5.2887795,1.7218972 6.35,1.7218587 Z"
+                           style="fill: var(--fill-color, #fff);stroke-width:1.89893;stroke-linejoin:round"
+                           id="path4" />
+                        <path
+                           d="M 6.35,3.6499064 A 2.7,2.7 0 0 0 3.6499064,6.35 2.7,2.7 0 0 0 6.35,9.0500936 2.7,2.7 0 0 0 9.0500936,6.35 2.7,2.7 0 0 0 6.35,3.6499064 Z m 0,1.1999268 A 1.5,1.5 0 0 1 7.8501668,6.35 1.5,1.5 0 0 1 6.35,7.8501668 1.5,1.5 0 0 1 4.8498332,6.35 1.5,1.5 0 0 1 6.35,4.8498332 Z"
+                           style="fill: var(--fill-color, #fff);stroke-width:1.6;stroke-linejoin:round" id="path5" />
+                     </g>
+                  </svg>
+               </div>
+               <div class="navigation__text">设置</div>
+            </div>
+         </button>
+      </div>
 
-    <div class="notice-container"></div>
-    <div class="dialog-container"></div>
-  </div>
+      <div class="notice-container"></div>
+      <div class="dialog-container"></div>
+   </div>
 </body>
 
 <script type="module" src="script/main.js"></script>

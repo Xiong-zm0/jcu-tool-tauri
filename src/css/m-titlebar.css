@@ -1,0 +1,12 @@
+.m-titlebar {
+    background-color: blueviolet;
+    grid-area: m-titlebar;
+
+    display: flex;
+}
+
+@media screen and (min-width: 649px) {
+    .m-titlebar {
+        display: none;
+    }
+}

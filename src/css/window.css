@@ -1,0 +1,13 @@
+.window {
+    height: 100vh;
+    background-color: rgb(191, 156, 225);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+        "d-titlebar d-titlebar"
+        "sidebar m-titlebar"
+        "sidebar body"
+        "sidebar m-footbar"
+        "d-footbar d-footbar";
+}

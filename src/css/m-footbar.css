@@ -1,0 +1,17 @@
+.m-footbar {
+    background-color: blueviolet;
+    grid-area: m-footbar;
+
+    display: flex;
+}
+
+.m-footbar .navigation {
+    flex: 1;
+}
+
+
+@media screen and (min-width: 649px) {
+    .m-footbar {
+        display: none;
+    }
+}
