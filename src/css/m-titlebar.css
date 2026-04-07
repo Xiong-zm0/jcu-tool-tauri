@@ -1,5 +1,5 @@
 .m-titlebar {
-    background-color: blueviolet;
+    background-color: rgba(255, 255, 255, 0);
     grid-area: m-titlebar;
     padding-top: env(safe-area-inset-top);
 

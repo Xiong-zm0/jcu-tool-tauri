@@ -1,7 +1,9 @@
+@import url("style.css");
+
 .navigation-container {
     grid-area: sidebar;
     z-index: 1;
-    background-color: rgb(153, 75, 226);
+    background-color: rgba(255, 255, 255, 0);
     display: flex;
     flex-direction: column;
 }
@@ -21,6 +23,7 @@
     background-color: #ffffff00;
     color: #fff;
     font-size: 0.8em;
+    border-radius: 0.5em;
 
     display: flex;
     flex-direction: column;
@@ -29,19 +32,16 @@
 }
 
 .navigation:hover .navigation__view {
-    border-radius: 0.5em;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .navigation:active .navigation__view {
-    border-radius: 0.5em;
-    background-color: rgba(255, 255, 255, 0.509);
-
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .navigation[aria-pressed=true] .navigation__view {
-    border-radius: 0.5em;
-    background-color: rgba(255, 255, 255, 0.509);
+    color: color-mix(in srgb, var(--theme-color) 80%, white 20%);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .navigation .navigation__view svg {
@@ -49,11 +49,13 @@
     --fill-color: #fff;
 }
 
+.navigation[aria-pressed=true] .navigation__view svg {
+    --fill-color: color-mix(in srgb, var(--theme-color) 80%, white 20%);
+}
+
 .navigation-container__split-line {
     flex-grow: 1;
 }
-
-
 
 @media screen and (max-width: 648px) {
     .navigation-container {
