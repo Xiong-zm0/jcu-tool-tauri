@@ -2,8 +2,20 @@
     background-color: rgba(255, 255, 255, 0);
     grid-area: m-titlebar;
     padding-top: env(safe-area-inset-top);
+    overflow: hidden;
 
     display: flex;
+
+    transition: 
+        height ease 0.2s;
+}
+
+.m-titlebar[animation=display] {
+    height: 3.25em;
+}
+
+.m-titlebar[animation=hidden] {
+    height: 0;
 }
 
 @media screen and (min-width: 649px) {

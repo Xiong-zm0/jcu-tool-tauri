@@ -38,6 +38,11 @@ function bindBackButton() {
     document.querySelectorAll("#navigation-back")
         .forEach((element) => {
             element.addEventListener("click", () => {
+                if (trackGroups[activeId].level == 2) {
+                    document.querySelector(".m-titlebar")
+                        .setAttribute("animation", "hidden");
+                }
+
                 const justActivedTrackGroups = trackGroups[activeId];
                 if (justActivedTrackGroups.level > 1) {
                     justActivedTrackGroups.level -= 1;
@@ -80,6 +85,9 @@ function changePageStake(buttonId) {
 export async function pushNewPage(pageConstructor, targetTrack) {
     const oldLastElement = trackGroups[targetTrack].trackGroup.children[trackGroups[targetTrack].level-1];
     oldLastElement.setAttribute("animation", "covered");
+
+    document.querySelector(".m-titlebar")
+        .setAttribute("animation", "display");
 
     let page = await pageConstructor();
     trackGroups[targetTrack].trackGroup.appendChild(page);

@@ -108,7 +108,6 @@ function constructInformationCard(information) {
     timeTip.innerText = timeString;
 
     let resetTime = (timeString) => {
-        console.log(654)
         timeTip.innerText = timeString;
     };
 
