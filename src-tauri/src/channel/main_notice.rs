@@ -173,6 +173,11 @@ impl ChannelMainNotice {
                     _ => {},
                 }
             }
+
+            if text_segments.len() == 0 {
+                text_segments.push(article::TextSegment::new(String::new(), vec![]));
+            }
+            
             Some(article::Passage::Text(text_segments))
         } else {
             let mut text_segments = vec![];
