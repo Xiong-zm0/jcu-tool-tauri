@@ -32,6 +32,7 @@ function initMainView() {
     }
     trackGroups[activeId].trackGroup.removeAttribute("hidden");
     loadInformation();
+    loadSetting()
 }
 
 function bindBackButton() {
@@ -77,6 +78,15 @@ function changePageStake(buttonId) {
     });
     activeId = buttonId;
     trackGroups[activeId].trackGroup.removeAttribute("hidden");
+
+    if (trackGroups[activeId].level > 1) {
+        document.querySelector(".m-titlebar")
+            .setAttribute("animation", "display");
+    } else {
+        document.querySelector(".m-titlebar")
+            .setAttribute("animation", "hidden");
+    }
+
     document.querySelectorAll(activeId).forEach((element) => {
         element.setAttribute("aria-pressed", "true");
     });

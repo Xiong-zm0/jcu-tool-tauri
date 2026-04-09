@@ -1,7 +1,11 @@
+@import url("style.css");
+
 .m-footbar {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: color-mix(in srgb, var(--theme-color) 90%, #ffffff00 10%);
+    backdrop-filter: blur(0.5em);
     grid-area: m-footbar;
     padding-bottom: env(safe-area-inset-bottom);
+    z-index: 1;
 
     display: flex;
 }

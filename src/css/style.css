@@ -66,7 +66,18 @@
 }
 
 @media screen and (max-width: 648px) {
+    .window-main-view {
+        grid-column: 2;
+        grid-row: 2/5;
+    }
+
     .carousel-track {
         padding: 0.5em;
+        padding-top: 3.75em;
+        padding-bottom: 3.75em;
+    }
+
+    .carousel-track[home] {
+        padding-top: 0.5em;
     }
 }
