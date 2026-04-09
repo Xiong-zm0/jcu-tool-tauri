@@ -73,8 +73,8 @@
 
     .carousel-track {
         padding: 0.5em;
-        padding-top: 3.75em;
-        padding-bottom: 3.75em;
+        padding-top: calc(3.75em + env(safe-area-inset-top));
+        padding-bottom: calc(3.75em + env(safe-area-inset-bottom));
     }
 
     .carousel-track[home] {
