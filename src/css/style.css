@@ -78,6 +78,6 @@
     }
 
     .carousel-track[home] {
-        padding-top: 0.5em;
+        padding-top: calc(0.5em + env(safe-area-inset-top));
     }
 }
