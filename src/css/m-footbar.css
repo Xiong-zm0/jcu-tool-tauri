@@ -1,19 +1,57 @@
 @import url("style.css");
 
 .m-footbar {
-    background-color: color-mix(in srgb, var(--theme-color) 90%, #ffffff00 10%);
-    backdrop-filter: blur(0.5em);
+    height: 3.25em;
+    background-color: color-mix(in srgb, var(--theme-color) 10%, #ffffffdc 90%);
+    backdrop-filter: blur(2em);
     grid-area: m-footbar;
     padding-bottom: env(safe-area-inset-bottom);
     z-index: 1;
 
     display: flex;
+    position: relative;
+}
+
+.m-footbar::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    height: 1px;
+    background-color: #3f3f3f3f;
 }
 
 .m-footbar .navigation {
     flex: 1;
+    height: 100%;
+    background-color: #ffffff00;
+    position: relative;
 }
 
+.m-footbar .navigation .navigation__view {
+    width: 100%;
+    height: 100%;
+    color: #525252;
+    font-size: 0.8em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-footbar .navigation[aria-pressed=true] .navigation__view {
+    color: var(--theme-color);
+}
+
+.m-footbar .navigation[aria-pressed=true] .navigation__view svg {
+    --fill-color: var(--theme-color);
+}
+
+.m-footbar .navigation .navigation__view svg {
+    height: 2em;
+    --fill-color: #525252;
+}
 
 @media screen and (min-width: 649px) {
     .m-footbar {
