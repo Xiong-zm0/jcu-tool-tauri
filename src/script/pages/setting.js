@@ -1,7 +1,13 @@
+import { pushNewPage } from "../pageManager.js";
+
 export function loadSetting() {
+    constructSettingPage();
+}
+
+function constructSettingPage() {
     const pageNode = document.querySelector(".setting-page");
     pageNode.appendChild(constructSection("显示", [
-        constructButton("主题色", ""),
+        constructButton("主题色", "", () => constructDisplayPage()),
         constructButton("安全区", ""),
         constructButton("详细设置", ""),
     ]));
@@ -19,6 +25,16 @@ export function loadSetting() {
     ]));
 }
 
+function constructDisplayPage() {
+    pushNewPage(displayPageConstructor, "#navigation-setting");
+}
+
+function displayPageConstructor() {
+    const displayPageNode = document.createElement("div");
+    displayPageNode.setAttribute("class", "display-page");
+    return displayPageNode;
+}
+
 function constructSection(sectionTitle, items) {
     const settingNode = document.createElement("div");
     settingNode.setAttribute("class", "setting-section card");
@@ -33,9 +49,10 @@ function constructSection(sectionTitle, items) {
     return settingNode;
 }
 
-function constructButton(name, type) {
+function constructButton(name, type, callback) {
     const buttonNode = document.createElement("button");
     buttonNode.setAttribute("class", "setting-section__item");
+    buttonNode.addEventListener("click", () => callback());
 
     const titleNode = document.createElement("div");
     titleNode.setAttribute("class", "item__title");
