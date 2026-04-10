@@ -37,6 +37,14 @@
     height: 100%;
     background-color: #ffffff00;
     position: relative;
+    opacity: 0;
+
+    transition: 
+        opacity linear 0.2s;
+}
+
+.m-titlebar[animation=display] .navigation{
+    opacity: 1;
 }
 
 .m-titlebar .navigation .navigation__view {
@@ -55,13 +63,13 @@
     color: var(--theme-color);
 }
 
-.m-titlebar .navigation[aria-pressed=true] .navigation__view svg {
-    --fill-color: var(--theme-color);
-}
-
 .m-titlebar .navigation .navigation__view svg {
     height: 2em;
     --fill-color: #525252;
+}
+
+.m-titlebar .navigation[aria-pressed=true] .navigation__view svg {
+    --fill-color: var(--theme-color);
 }
 
 .m-titlebar .navigation__spliter {
