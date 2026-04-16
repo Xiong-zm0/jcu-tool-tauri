@@ -39,12 +39,33 @@ async fn load_article(article: Article) -> Result<Article, String> {
     Ok(article)
 }
 
+#[tauri::command]
+async fn load_settings(state: tauri::State<'_, Mutex<AppState>>) -> Result<Settings, String> {
+    let settings = {
+        let state = state.lock().unwrap();
+        state.settings.clone()
+    };
+    Ok(settings)
+}
+
+#[tauri::command]
+async fn save_settings(state: tauri::State<'_, Mutex<AppState>>, app: tauri::AppHandle, settings: Settings) -> Result<(), String> {
+    {
+        let mut state = state.lock().unwrap();
+        state.settings = settings;
+        state.settings.store(&app);
+    }
+    Ok(())
+}
+
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .setup(|app| {
+        .plugin(tauri_plugin_store::Builder::new().build())
+        .setup(|app: &mut tauri::App| {
             let state = AppState {
-                settings: Settings {},
+                settings: Settings::load(app),
                 channels: vec![
                     Arc::new(channel::Channel::new(ChannelType::MainNews)),
                     Arc::new(channel::Channel::new(ChannelType::MainNotice)),
@@ -56,7 +77,12 @@ pub fn run() {
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![load_article, synchronize_channels])
+        .invoke_handler(tauri::generate_handler![
+                load_article,
+                synchronize_channels,
+                load_settings,
+                save_settings,
+            ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

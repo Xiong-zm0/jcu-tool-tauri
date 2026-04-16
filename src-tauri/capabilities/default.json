@@ -13,6 +13,7 @@
     "core:window:allow-start-dragging",
     "opener:default",
     "http:default",
-    "fs:default"
+    "fs:default",
+    "store:default"
   ]
 }

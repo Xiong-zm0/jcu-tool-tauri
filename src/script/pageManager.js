@@ -1,5 +1,5 @@
 import { loadInformation } from "./pages/information.js";
-import { loadSetting } from "./pages/setting.js";
+import { loadSetting } from "./pages/settings.js";
 
 let trackGroups = {
     "#navigation-news": {
