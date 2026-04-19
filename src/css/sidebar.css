@@ -38,7 +38,7 @@
 }
 
 .sidebar .navigation[aria-pressed=true] .navigation__view {
-    color: color-mix(in srgb, var(--theme-color) 80%, white 20%);
+    color: color-mix(in srgb, var(--primary-color) 80%, white 20%);
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -48,7 +48,7 @@
 }
 
 .sidebar .navigation[aria-pressed=true] .navigation__view svg {
-    --fill-color: color-mix(in srgb, var(--theme-color) 80%, white 20%);
+    --fill-color: color-mix(in srgb, var(--primary-color) 80%, white 20%);
 }
 
 .sidebar .navigation__spliter {
@@ -58,5 +58,28 @@
 @media screen and (max-width: 648px) {
     .sidebar {
         display: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .sidebar {
+        background-color: #0000005d;
+    }
+
+    .sidebar .navigation .navigation__view {
+        color: #d8d8d8;
+    }
+
+    .sidebar .navigation[aria-pressed=true] .navigation__view {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .sidebar .navigation .navigation__view svg {
+        height: 2em;
+        --fill-color: #d8d8d8;
+    }
+
+    .sidebar .navigation[aria-pressed=true] .navigation__view svg {
+        --fill-color: color-mix(in srgb, var(--primary-color) 80%, #d8d8d8 20%);
     }
 }

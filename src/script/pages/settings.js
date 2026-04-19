@@ -1,4 +1,6 @@
 import { pushNewPage } from "../pageManager.js";
+import { updateSetting } from "../settings.js";
+import { themeDict } from "../theme.js";
 
 export function loadSetting() {
     constructSettingPage();
@@ -37,8 +39,9 @@ function displaySettingConstructor() {
     const displayPageNode = document.createElement("div");
     displayPageNode.setAttribute("class", "setting-page");
 
-    function setThemeColor(color) {
-        document.documentElement.style.setProperty("--theme-color", color);
+    function setThemeColor(themeKey) {
+        updateSetting("theme", themeKey);
+        document.documentElement.style.setProperty("--primary-color", themeDict[themeKey]["--primary-color"]);
     }
 
     displayPageNode.appendChild(constructSection("夜间模式", [
@@ -48,11 +51,11 @@ function displaySettingConstructor() {
     ]))
 
     displayPageNode.appendChild(constructSection("主题色", [
-        constructButton("陶瓷蓝", "", () => setThemeColor("#1e59a8")),
-        constructButton("哔哩粉", "", () => setThemeColor("#fb7299")),
-        constructButton("书小红", "", () => setThemeColor("#ff2e4d")),
-        constructButton("巨信绿", "", () => setThemeColor("#1aad19")),
-        constructButton("清华紫", "", () => setThemeColor("#6703b1")),
+        constructButton("陶瓷蓝", "", () => setThemeColor("Blue")),
+        constructButton("哔哩粉", "", () => setThemeColor("Pink")),
+        constructButton("书小红", "", () => setThemeColor("Red")),
+        constructButton("巨信绿", "", () => setThemeColor("Green")),
+        constructButton("清华紫", "", () => setThemeColor("Purple")),
         constructButton("自定义", "", ),
     ]));
 

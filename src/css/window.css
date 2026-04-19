@@ -2,7 +2,7 @@
 
 .window {
     height: 100vh;
-    background-color: var(--theme-color);
+    background-color: var(--primary-color);
     display: grid;
     grid-template-rows: auto auto 1fr auto auto;
     grid-template-columns: auto 1fr;

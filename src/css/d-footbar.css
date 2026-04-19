@@ -28,3 +28,9 @@
         display: none;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .footbar-desktop {
+        background-color: #0000005d;
+    }
+}

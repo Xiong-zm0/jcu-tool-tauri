@@ -3,9 +3,10 @@
 .card {
     --radius: 0.5em;
     --transition-time: 0.5s;
+    --card-shadow-color: #00000055;
 
     border-radius: var(--radius);
-    box-shadow: 0 0 0.5em #00000055;
+    box-shadow: 0 0 0.5em var(--card-shadow-color);
 }
 
 .group-split-line {
@@ -27,6 +28,16 @@
 
 @media  screen and (max-width: 648px) {
     .card {
-    box-shadow: 0 0 0.125em #00000055;
+    box-shadow: 0 0 0.125em var(--card-shadow-color);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .card {
+        --card-shadow-color: #bfbfbf2f;
+    }
+
+    .group-split-line__line {
+        background-color: #b4b4b4;
     }
 }

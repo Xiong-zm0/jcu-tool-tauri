@@ -44,3 +44,10 @@
         font-size: 1.25em;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .article-page {
+        background-color: #ffffff17;
+        color: #ffffffe8;
+    }
+}

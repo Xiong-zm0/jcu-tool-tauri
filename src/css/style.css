@@ -1,5 +1,5 @@
 :root {
-    --theme-color: #1e59a8;
+    --primary-color: #1e59a8;
 }
 
 * {
@@ -79,5 +79,11 @@
 
     .carousel-track[home] {
         padding-top: calc(0.5em + env(safe-area-inset-top));
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .track-group {
+        background-color: #000000c9;
     }
 }

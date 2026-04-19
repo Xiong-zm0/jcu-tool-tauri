@@ -32,7 +32,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: var(--radius) var(--radius) 0 0;
-    background-color: rgb(220, 209, 225);
 }
 
 .information-card__title {
@@ -73,5 +72,16 @@
         grid-template-columns: repeat(
             auto-fill, minmax(160px, 1fr)
     );
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .information-card {
+        background-color: #ffffff17;
+        color: #ffffffe8;
+    }
+
+    .information-card__department {
+        color: #ffffffa3;
     }
 }

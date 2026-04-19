@@ -2,7 +2,7 @@
 
 .m-footbar {
     height: 3.25em;
-    background-color: color-mix(in srgb, var(--theme-color) 10%, #ffffffdc 90%);
+    background-color: color-mix(in srgb, var(--primary-color) 10%, #ffffffdc 90%);
     backdrop-filter: blur(2em);
     grid-area: m-footbar;
     padding-bottom: env(safe-area-inset-bottom);
@@ -41,11 +41,11 @@
 }
 
 .m-footbar .navigation[aria-pressed=true] .navigation__view {
-    color: var(--theme-color);
+    color: var(--primary-color);
 }
 
 .m-footbar .navigation[aria-pressed=true] .navigation__view svg {
-    --fill-color: var(--theme-color);
+    --fill-color: var(--primary-color);
 }
 
 .m-footbar .navigation .navigation__view svg {
@@ -56,5 +56,20 @@
 @media screen and (min-width: 649px) {
     .m-footbar {
         display: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .m-footbar {
+        background-color: color-mix(in srgb, var(--primary-color) 10%, #000000dc 90%);
+    }
+    
+    .m-footbar .navigation .navigation__view {
+        color: #ffffffa3;
+    }
+
+    .m-footbar .navigation .navigation__view svg {
+        height: 2em;
+        --fill-color: #ffffffa3;
     }
 }

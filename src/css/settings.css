@@ -42,3 +42,21 @@
         height: 3em;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .setting-section {
+        background-color: #ffffff17;
+    }
+
+    .setting-section .setting-section__title {
+        color: #ffffffa3;
+    }
+
+    .setting-section .setting-section__item {
+        color: #ffffffe8;
+    }
+
+    .setting-section .setting-section__item:hover {
+        background-color: #ffffff26;
+    }
+}

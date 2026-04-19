@@ -1,7 +1,7 @@
 @import url("style.css");
 
 .m-titlebar {
-    background-color: color-mix(in srgb, var(--theme-color) 10%, #ffffffdc 90%);
+    background-color: color-mix(in srgb, var(--primary-color) 10%, #ffffffdc 90%);
     backdrop-filter: blur(2em);
     grid-area: m-titlebar;
     padding-top: env(safe-area-inset-top);
@@ -60,7 +60,7 @@
 }
 
 .m-titlebar .navigation[aria-pressed=true] .navigation__view {
-    color: var(--theme-color);
+    color: var(--primary-color);
 }
 
 .m-titlebar .navigation .navigation__view svg {
@@ -69,7 +69,7 @@
 }
 
 .m-titlebar .navigation[aria-pressed=true] .navigation__view svg {
-    --fill-color: var(--theme-color);
+    --fill-color: var(--primary-color);
 }
 
 .m-titlebar .navigation__spliter {
@@ -79,5 +79,20 @@
 @media screen and (min-width: 649px) {
     .m-titlebar {
         display: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .m-titlebar {
+        background-color: color-mix(in srgb, var(--primary-color) 10%, #000000dc 90%);
+    }
+    
+    .m-titlebar .navigation .navigation__view {
+        color: #ffffffa3;
+    }
+
+    .m-titlebar .navigation .navigation__view svg {
+        height: 2em;
+        --fill-color: #ffffffa3;
     }
 }
