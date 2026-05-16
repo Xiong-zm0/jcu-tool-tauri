@@ -68,7 +68,7 @@ impl Settings {
 
     pub fn store(&self, app: &tauri::AppHandle) {
         println!("Storing settings...");
-        if let Ok(mut store) = app.store("settings.json") {
+        if let Ok(store) = app.store("settings.json") {
             println!("Settings store loaded successfully for storing.");
             store.set("theme", match self.theme {
                 Theme::Blue => "Blue",
@@ -82,6 +82,9 @@ impl Settings {
                 DarkMode::Enabled => "Enabled",
                 DarkMode::Disabled => "Disabled",
             });
+            store
+                .save()
+                .expect("Failed to save settings store.");
             println!("Settings stored successfully.");
         } else {
             println!("Failed to load settings store for storing.");
