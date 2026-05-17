@@ -67,10 +67,18 @@ html.dark .m-footbar {
 }
 
 html.dark .m-footbar .navigation .navigation__view {
-    color: #ffffffa3;
+    color: #b2b2b2;
+}
+
+html.dark .m-footbar .navigation[aria-pressed=true] .navigation__view {
+    color: var(--primary-color);
+}
+
+html.dark .m-footbar .navigation[aria-pressed=true] .navigation__view svg {
+    --fill-color: var(--primary-color);
 }
 
 html.dark .m-footbar .navigation .navigation__view svg {
     height: 2em;
-    --fill-color: #ffffffa3;
+    --fill-color: #b2b2b2;
 }

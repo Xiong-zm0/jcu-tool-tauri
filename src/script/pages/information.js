@@ -137,7 +137,7 @@ function constructSplitLine(text) {
     lineRight.setAttribute("class", "group-split-line__line");
 
     let textDiv = document.createElement("div");
-    textDiv.class = "group-split-line__text";
+    textDiv.classList.add("group-split-line__text");
     textDiv.innerText = text;
 
     groupSplitLine.appendChild(lineLeft);

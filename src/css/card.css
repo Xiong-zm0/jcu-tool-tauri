@@ -18,7 +18,7 @@
 }
 
 .group-split-line__line {
-    background-color: var(--theme-color);
+    background-color: var(--primary-color);
     height: 0.1em;
 }
 
@@ -38,6 +38,6 @@ html.dark .card {
     --card-shadow-color: #bfbfbf2f;
 }
 
-html.dark .group-split-line__line {
-    background-color: #b4b4b4;
+html.dark .group-split-line__text {
+    color: #b4b4b4;
 }
