@@ -82,8 +82,7 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .track-group {
-        background-color: #000000c9;
-    }
+
+html.dark .track-group {
+    background-color: #000000c9;
 }

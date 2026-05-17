@@ -45,9 +45,9 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .article-page {
-        background-color: #ffffff17;
-        color: #ffffffe8;
-    }
+
+
+html.dark .article-page {
+    background-color: #ffffff17;
+    color: #ffffffe8;
 }

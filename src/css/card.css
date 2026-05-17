@@ -32,12 +32,12 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .card {
-        --card-shadow-color: #bfbfbf2f;
-    }
 
-    .group-split-line__line {
-        background-color: #b4b4b4;
-    }
+
+html.dark .card {
+    --card-shadow-color: #bfbfbf2f;
+}
+
+html.dark .group-split-line__line {
+    background-color: #b4b4b4;
 }

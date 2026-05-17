@@ -75,13 +75,13 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .information-card {
-        background-color: #ffffff17;
-        color: #ffffffe8;
-    }
 
-    .information-card__department {
-        color: #ffffffa3;
-    }
+
+html.dark .information-card {
+    background-color: #ffffff17;
+    color: #ffffffe8;
+}
+
+html.dark .information-card__department {
+    color: #ffffffa3;
 }

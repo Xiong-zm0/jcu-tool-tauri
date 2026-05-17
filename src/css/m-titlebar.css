@@ -82,17 +82,18 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .m-titlebar {
-        background-color: color-mix(in srgb, var(--primary-color) 10%, #000000dc 90%);
-    }
-    
-    .m-titlebar .navigation .navigation__view {
-        color: #ffffffa3;
-    }
 
-    .m-titlebar .navigation .navigation__view svg {
-        height: 2em;
-        --fill-color: #ffffffa3;
-    }
+
+
+html.dark .m-titlebar {
+    background-color: color-mix(in srgb, var(--primary-color) 10%, #000000dc 90%);
+}
+
+html.dark .m-titlebar .navigation .navigation__view {
+    color: #ffffffa3;
+}
+
+html.dark .m-titlebar .navigation .navigation__view svg {
+    height: 2em;
+    --fill-color: #ffffffa3;
 }

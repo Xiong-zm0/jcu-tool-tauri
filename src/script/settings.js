@@ -1,4 +1,4 @@
-import { themeDict } from "./theme.js";
+import { initTheme, initDarkMode } from "./theme.js";
 
 const invoke = window.__TAURI__.core.invoke;
 
@@ -9,6 +9,7 @@ function loadSettings() {
     invoke("load_settings").then((result) => {
         settings = result;
         initTheme(settings.theme);
+        initDarkMode(settings.dark_mode);
         console.log("Settings loaded:", settings);
     }).catch((error) => {
         console.error("Failed to load settings:", error);
@@ -34,8 +35,4 @@ function saveSettings() {
     } else {
         console.warn("No settings to save.");
     }
-}
-
-function initTheme(themeKey) {
-    document.documentElement.style.setProperty("--primary-color", themeDict[themeKey]["--primary-color"]);
 }

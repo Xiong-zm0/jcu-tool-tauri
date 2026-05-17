@@ -61,25 +61,28 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .sidebar {
-        background-color: #0000005d;
-    }
 
-    .sidebar .navigation .navigation__view {
-        color: #d8d8d8;
-    }
+html.dark .sidebar {
+    background-color: #0000005d;
+}
 
-    .sidebar .navigation[aria-pressed=true] .navigation__view {
-        background-color: rgba(255, 255, 255, 0.8);
-    }
+html.dark .sidebar .navigation .navigation__view {
+    color: #d8d8d8;
+}
 
-    .sidebar .navigation .navigation__view svg {
-        height: 2em;
-        --fill-color: #d8d8d8;
-    }
+html.dark .sidebar .navigation[aria-pressed=true] .navigation__view {
+    color: color-mix(in srgb, var(--primary-color) 90%, white 10%);
+}
 
-    .sidebar .navigation[aria-pressed=true] .navigation__view svg {
-        --fill-color: color-mix(in srgb, var(--primary-color) 80%, #d8d8d8 20%);
-    }
+html.dark .sidebar .navigation[aria-pressed=true] .navigation__view {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+html.dark .sidebar .navigation .navigation__view svg {
+    height: 2em;
+    --fill-color: #d8d8d8;
+}
+
+html.dark .sidebar .navigation[aria-pressed=true] .navigation__view svg {
+    --fill-color: color-mix(in srgb, var(--primary-color) 80%, #d8d8d8 20%);
 }
