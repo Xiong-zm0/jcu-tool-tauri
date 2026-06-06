@@ -44,10 +44,25 @@ function displaySettingConstructor() {
         document.documentElement.style.setProperty("--primary-color", themeDict[themeKey]["--primary-color"]);
     }
 
+    function setDarkMode(mode) {
+        updateSetting("darkMode", mode);
+        if (mode === "light") {
+            document.documentElement.classList.remove("dark");
+        } else if (mode === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        }
+    }
+
     displayPageNode.appendChild(constructSection("夜间模式", [
-        constructButton("跟随系统", "", ),
-        constructButton("明亮", "", ),
-        constructButton("暗色", "", ),
+        constructButton("跟随系统", "", () => setDarkMode("auto")),
+        constructButton("明亮", "", () => setDarkMode("light")),
+        constructButton("暗色", "", () => setDarkMode("dark")),
     ]))
 
     displayPageNode.appendChild(constructSection("主题色", [
