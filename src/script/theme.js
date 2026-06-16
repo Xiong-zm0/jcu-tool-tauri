@@ -1,5 +1,3 @@
-import { updateSetting } from "./settings.js";
-
 export const themeDict = {
     "Blue": {
         "--primary-color": "#1e59a8"
@@ -19,7 +17,8 @@ export const themeDict = {
 }
 
 export function initTheme(themeKey) {
-    document.documentElement.style.setProperty("--primary-color", themeDict[themeKey]["--primary-color"]);
+    document.documentElement.style
+        .setProperty("--primary-color", themeDict[themeKey]["--primary-color"]);
 }
 
 export function initDarkMode(darkModeKey) {

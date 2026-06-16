@@ -45,10 +45,10 @@ function displaySettingConstructor() {
     }
 
     function setDarkMode(mode) {
-        updateSetting("darkMode", mode);
-        if (mode === "light") {
+        updateSetting("dark_mode", mode);
+        if (mode === "Disabled") {
             document.documentElement.classList.remove("dark");
-        } else if (mode === "dark") {
+        } else if (mode === "Enabled") {
             document.documentElement.classList.add("dark");
         } else {
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -60,9 +60,9 @@ function displaySettingConstructor() {
     }
 
     displayPageNode.appendChild(constructSection("夜间模式", [
-        constructButton("跟随系统", "", () => setDarkMode("auto")),
-        constructButton("明亮", "", () => setDarkMode("light")),
-        constructButton("暗色", "", () => setDarkMode("dark")),
+        constructButton("跟随系统", "", () => setDarkMode("Auto")),
+        constructButton("明亮", "", () => setDarkMode("Disabled")),
+        constructButton("暗色", "", () => setDarkMode("Enabled")),
     ]))
 
     displayPageNode.appendChild(constructSection("主题色", [

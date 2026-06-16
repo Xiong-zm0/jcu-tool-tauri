@@ -7,9 +7,6 @@ mod ylc_notice;
 use std::pin::Pin;
 use std::future::Future;
 
-use chrono::{self, FixedOffset, TimeZone};
-use tauri_plugin_http::reqwest;
-
 use crate::article::Article;
 use main_notice::ChannelMainNotice;
 use main_news::ChannelMainNews;

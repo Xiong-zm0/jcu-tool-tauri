@@ -82,6 +82,7 @@ impl Settings {
                 DarkMode::Enabled => "Enabled",
                 DarkMode::Disabled => "Disabled",
             });
+            println!("{:?}/{:?}", self.theme, self.dark_mode);
             store
                 .save()
                 .expect("Failed to save settings store.");

@@ -19,20 +19,12 @@ function loadSettings() {
 export function updateSetting(key, value) {
     if (settings) {
         settings[key] = value;
-        saveSettings();
-    } else {
-        console.warn("Settings not loaded yet. Cannot update setting.");
-    }
-}
-
-function saveSettings() {
-    if (settings) {
         invoke("save_settings", { settings }).then(() => {
             console.log("Settings saved successfully.", settings);
         }).catch((error) => {
             console.error("Failed to save settings:", error);
         });
     } else {
-        console.warn("No settings to save.");
+        console.warn("Settings not loaded yet. Cannot update setting.");
     }
 }
